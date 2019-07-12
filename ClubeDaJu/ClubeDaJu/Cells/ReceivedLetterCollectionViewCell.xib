@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Kievit_Book.ttf">
+            <string>Kievit-Book</string>
+        </array>
+        <array key="Kievit_Medium.ttf">
+            <string>Kievit-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ReceivedLetterCollectionViewCell" id="gTV-IL-0wX" customClass="ReceivedLetterCollectionViewCell" customModule="ClubeDaJu" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="251" height="277"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="251" height="277"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view alpha="0.77000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yB6-uB-bpt" customClass="RoundedView" customModule="ClubeDaJu" customModuleProvider="target">
+                        <rect key="frame" x="8" y="8" width="235" height="261"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHs-A0-55Z">
+                                <rect key="frame" x="8" y="16" width="219" height="17"/>
+                                <fontDescription key="fontDescription" name="Kievit-Medium" family="Kievit" pointSize="18"/>
+                                <color key="textColor" red="0.25098039220000001" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmC-jF-hyL">
+                                <rect key="frame" x="8" y="49" width="219" height="196"/>
+                                <fontDescription key="fontDescription" name="Kievit-Book" family="Kievit" pointSize="15"/>
+                                <color key="textColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nmC-jF-hyL" firstAttribute="leading" secondItem="yB6-uB-bpt" secondAttribute="leading" constant="8" id="0Es-PD-1Xv"/>
+                            <constraint firstAttribute="trailing" secondItem="nmC-jF-hyL" secondAttribute="trailing" constant="8" id="3vB-fL-GwK"/>
+                            <constraint firstAttribute="trailing" secondItem="aHs-A0-55Z" secondAttribute="trailing" constant="8" id="8QL-UC-fdT"/>
+                            <constraint firstAttribute="bottom" secondItem="nmC-jF-hyL" secondAttribute="bottom" constant="16" id="BlJ-4U-SQM"/>
+                            <constraint firstItem="nmC-jF-hyL" firstAttribute="top" secondItem="aHs-A0-55Z" secondAttribute="bottom" constant="16" id="KdL-zp-pAZ"/>
+                            <constraint firstItem="aHs-A0-55Z" firstAttribute="leading" secondItem="yB6-uB-bpt" secondAttribute="leading" constant="8" id="PLS-jC-NSM"/>
+                            <constraint firstItem="aHs-A0-55Z" firstAttribute="top" secondItem="yB6-uB-bpt" secondAttribute="top" constant="16" id="jz0-SN-2PH"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="yB6-uB-bpt" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="M7J-b4-bqa"/>
+                <constraint firstAttribute="trailing" secondItem="yB6-uB-bpt" secondAttribute="trailing" constant="8" id="QqL-RK-VFf"/>
+                <constraint firstItem="yB6-uB-bpt" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="X81-x4-hTi"/>
+                <constraint firstAttribute="bottom" secondItem="yB6-uB-bpt" secondAttribute="bottom" constant="8" id="enA-ck-qec"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="251" height="277"/>
+            <connections>
+                <outlet property="descLabel" destination="nmC-jF-hyL" id="Vf3-IW-OXG"/>
+                <outlet property="outsideView" destination="yB6-uB-bpt" id="sqW-RY-Yfz"/>
+                <outlet property="titleLabel" destination="aHs-A0-55Z" id="77e-ci-0Zh"/>
+            </connections>
+            <point key="canvasLocation" x="177.536231884058" y="201.22767857142856"/>
+        </collectionViewCell>
+    </objects>
+</document>
