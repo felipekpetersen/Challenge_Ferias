@@ -36,8 +36,11 @@
                                 <color key="textColor" red="0.25098039220000001" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmC-jF-hyL">
-                                <rect key="frame" x="8" y="49" width="219" height="196"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmC-jF-hyL">
+                                <rect key="frame" x="8" y="41" width="219" height="204"/>
+                                <mutableString key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam rutrum scelerisque neque. Mauris libero felis, pulvinar id congue ac, finibus a velit. Praesent quis odio diam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec ac elit cursus lorem aliquam malesuada sit amet id orci. Vestibulum velit purus, commodo vel luctus non, dignissim vitae libero. Ut faucibus massa eu sagittis pellentesque. Donec ut arcu ac neque faucibus eleifend. Nullam dapibus neque sed risus molestie rhoncus. Pellentesque faucibus sit amet augue et suscipit. Fusce pellentesque tortor ante, vitae imperdiet odio suscipit pulvinar. Sed vitae tellus sed orci ultrices euismod sed at nisl. In sodales dapibus nulla, eget pellentesque massa tempus nec. Curabitur facilisis quam vel enim tincidunt egestas. Cras finibus lorem vel urna aliquet, a commodo mi egestas. Vivamus placerat, arcu ut consectetur sodales, ante justo ultrices ligula, vel accumsan enim sem non leo.
+
+</mutableString>
                                 <fontDescription key="fontDescription" name="Kievit-Book" family="Kievit" pointSize="15"/>
                                 <color key="textColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -49,7 +52,7 @@
                             <constraint firstAttribute="trailing" secondItem="nmC-jF-hyL" secondAttribute="trailing" constant="8" id="3vB-fL-GwK"/>
                             <constraint firstAttribute="trailing" secondItem="aHs-A0-55Z" secondAttribute="trailing" constant="8" id="8QL-UC-fdT"/>
                             <constraint firstAttribute="bottom" secondItem="nmC-jF-hyL" secondAttribute="bottom" constant="16" id="BlJ-4U-SQM"/>
-                            <constraint firstItem="nmC-jF-hyL" firstAttribute="top" secondItem="aHs-A0-55Z" secondAttribute="bottom" constant="16" id="KdL-zp-pAZ"/>
+                            <constraint firstItem="nmC-jF-hyL" firstAttribute="top" secondItem="aHs-A0-55Z" secondAttribute="bottom" constant="8" id="KdL-zp-pAZ"/>
                             <constraint firstItem="aHs-A0-55Z" firstAttribute="leading" secondItem="yB6-uB-bpt" secondAttribute="leading" constant="8" id="PLS-jC-NSM"/>
                             <constraint firstItem="aHs-A0-55Z" firstAttribute="top" secondItem="yB6-uB-bpt" secondAttribute="top" constant="16" id="jz0-SN-2PH"/>
                         </constraints>

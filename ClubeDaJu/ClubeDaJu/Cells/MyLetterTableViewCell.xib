@@ -35,7 +35,7 @@
                         </constraints>
                     </view>
                     <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IRM-i8-tzQ" customClass="RoundedView" customModule="ClubeDaJu" customModuleProvider="target">
-                        <rect key="frame" x="308" y="-12" width="24" height="24"/>
+                        <rect key="frame" x="296" y="-12" width="24" height="24"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="776-KE-35O">
                                 <rect key="frame" x="9" y="3.5" width="6.5" height="17"/>
@@ -58,29 +58,58 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Amor não Correspondido" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VzY-0r-pfn">
-                        <rect key="frame" x="16" y="16" width="240" height="17"/>
+                        <rect key="frame" x="16" y="16" width="240" height="21"/>
                         <fontDescription key="fontDescription" name="Kievit-Medium" family="Kievit" pointSize="18"/>
                         <color key="textColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnT-3B-L7q">
-                        <rect key="frame" x="16" y="41" width="240" height="88.5"/>
+                        <rect key="frame" x="16" y="45" width="240" height="84.5"/>
                         <string key="text">Essa carta conta a história de como tudo começou em nossas vidas, Essa carta conta a história de como tudo começou.Essa carta conta a história de como tudo começou em…</string>
                         <fontDescription key="fontDescription" name="Kievit-Book" family="Kievit" pointSize="15"/>
                         <color key="textColor" red="0.62745098039215685" green="0.62745098039215685" blue="0.62745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="xz5-8D-1l7">
+                        <rect key="frame" x="274" y="43.5" width="35" height="86"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CUI-Qr-Qw1">
+                                <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="D2k-hJ-CG2"/>
+                                    <constraint firstAttribute="height" constant="35" id="VkA-9r-Wcw"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="favorite_unselected"/>
+                                <connections>
+                                    <action selector="didTapFavorite:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ZIt-DD-pUr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLe-Tj-Rlk">
+                                <rect key="frame" x="0.0" y="51" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="4GX-x5-RQ5"/>
+                                    <constraint firstAttribute="width" constant="35" id="C2h-Fn-1T1"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="share_unselected"/>
+                                <connections>
+                                    <action selector="didTapShare:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="YQ5-Q2-4Uh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </stackView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="qnT-3B-L7q" firstAttribute="top" secondItem="VzY-0r-pfn" secondAttribute="bottom" constant="8" id="3dx-5D-aaW"/>
-                    <constraint firstAttribute="trailing" secondItem="IRM-i8-tzQ" secondAttribute="trailing" constant="-12" id="CsF-q6-ZcC"/>
+                    <constraint firstAttribute="trailing" secondItem="IRM-i8-tzQ" secondAttribute="trailing" id="CsF-q6-ZcC"/>
                     <constraint firstAttribute="trailing" secondItem="qnT-3B-L7q" secondAttribute="trailing" constant="64" id="Kaa-RX-Hve"/>
                     <constraint firstItem="qnT-3B-L7q" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="KrR-PK-MCq"/>
                     <constraint firstAttribute="trailing" secondItem="VzY-0r-pfn" secondAttribute="trailing" constant="64" id="OHQ-b6-49D"/>
                     <constraint firstItem="My4-Of-HvZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="RLb-0i-Qs3"/>
                     <constraint firstItem="My4-Of-HvZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="WTq-cs-zRN"/>
+                    <constraint firstAttribute="bottom" secondItem="xz5-8D-1l7" secondAttribute="bottom" constant="16" id="d9d-Aj-afr"/>
                     <constraint firstItem="VzY-0r-pfn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="edm-BK-pSF"/>
+                    <constraint firstAttribute="trailing" secondItem="xz5-8D-1l7" secondAttribute="trailing" constant="11" id="ih4-nB-Nct"/>
                     <constraint firstAttribute="trailing" secondItem="My4-Of-HvZ" secondAttribute="trailing" id="qMA-vP-AOH"/>
                     <constraint firstItem="IRM-i8-tzQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="-12" id="tWU-S4-WHE"/>
                     <constraint firstItem="VzY-0r-pfn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="v2K-2K-aBB"/>
@@ -89,7 +118,17 @@
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="descLabel" destination="qnT-3B-L7q" id="r2B-Im-P7R"/>
+                <outlet property="notificationView" destination="IRM-i8-tzQ" id="vrx-NT-N3C"/>
+                <outlet property="numberNotificationLabel" destination="776-KE-35O" id="urY-Kb-e2W"/>
+                <outlet property="titleLabel" destination="VzY-0r-pfn" id="zGw-dh-HSj"/>
+            </connections>
             <point key="canvasLocation" x="173.91304347826087" y="186.16071428571428"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="favorite_unselected" width="32" height="32"/>
+        <image name="share_unselected" width="32" height="32"/>
+    </resources>
 </document>

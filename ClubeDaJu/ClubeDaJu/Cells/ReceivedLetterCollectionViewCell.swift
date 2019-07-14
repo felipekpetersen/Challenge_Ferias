@@ -16,6 +16,7 @@ class ReceivedLetterCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        descLabel.lineHeightMultiple = LINE_HEIGHT
         let color = UIColor(rgb: 0xEEAE7B)
         self.outsideView.setupShadow(color: color, opacity: 0.45, offset: .zero, radius: 16)
     }

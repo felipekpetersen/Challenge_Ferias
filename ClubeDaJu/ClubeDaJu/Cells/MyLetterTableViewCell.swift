@@ -8,17 +8,31 @@
 
 import UIKit
 
-class MyLetterTableViewCell: UITableViewCell {
+protocol MyLetterTableViewCellDelegate {
+    func didTapFavorite(isFavorite: Bool)
+    func didTapShare(isShare: Bool)
+}
 
+class MyLetterTableViewCell: UITableViewCell {
+    
+    var delegate: MyLetterTableViewCellDelegate?
+
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descLabel: UILabel!
+    @IBOutlet weak var notificationView: RoundedView!
+    @IBOutlet weak var numberNotificationLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.descLabel.lineHeightMultiple = LINE_HEIGHT
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    @IBAction func didTapFavorite(_ sender: Any) {
+        self.delegate?.didTapFavorite(isFavorite: true)
+    }
+    
+    @IBAction func didTapShare(_ sender: Any) {
+        self.delegate?.didTapShare(isShare: true)
     }
     
 }
