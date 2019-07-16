@@ -14,25 +14,62 @@ protocol MyLetterTableViewCellDelegate {
 }
 
 class MyLetterTableViewCell: UITableViewCell {
-    
-    var delegate: MyLetterTableViewCellDelegate?
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var notificationView: RoundedView!
     @IBOutlet weak var numberNotificationLabel: UILabel!
+    @IBOutlet weak var mailNotificationView: RoundedView!
+    @IBOutlet weak var favoriteButtonOutlet: UIButton!
+    @IBOutlet weak var shareButtonOutlet: UIButton!
     
+    var isFavorite: Bool?
+    var isShared: Bool?
+    var delegate: MyLetterTableViewCellDelegate?
+
     override func awakeFromNib() {
         super.awakeFromNib()
         self.descLabel.lineHeightMultiple = LINE_HEIGHT
+
+    }
+    
+    func setupCell(letter: Letter) {
+        self.titleLabel.text = letter.title
+        self.descLabel.text = letter.content
+        self.mailNotificationView.isHidden = !(letter.hasNotification ?? false)
+        self.isShared = letter.isShared
+        self.isFavorite = letter.isFavorite
+        
     }
     
     @IBAction func didTapFavorite(_ sender: Any) {
-        self.delegate?.didTapFavorite(isFavorite: true)
+        if isFavorite ?? false {
+            self.isFavorite = false
+            self.favoriteButtonOutlet.setBackgroundImage(UIImage(named: "favorite_unselected"), for: .normal)
+            self.favoriteButtonOutlet.layer.shadowOpacity = 0
+            
+        } else {
+            self.isFavorite = true
+            self.favoriteButtonOutlet.setBackgroundImage(UIImage(named: "favorite_selected"), for: .normal)
+            self.favoriteButtonOutlet.setupShadow(color: UIColor(rgb: 0xF7DB76), opacity: 94, offset: .zero, radius: 8)
+            self.favoriteButtonOutlet.layer.shadowOpacity = 1
+        }
+        self.delegate?.didTapFavorite(isFavorite: self.isFavorite ?? false)
     }
     
     @IBAction func didTapShare(_ sender: Any) {
-        self.delegate?.didTapShare(isShare: true)
+        if isShared ?? false {
+            self.isShared = false
+            self.shareButtonOutlet.setBackgroundImage(UIImage(named: "share_unselected"), for: .normal)
+            self.shareButtonOutlet.layer.shadowOpacity = 0
+           
+        } else {
+            self.isShared = true
+            self.shareButtonOutlet.setBackgroundImage(UIImage(named: "share_selected"), for: .normal)
+            self.shareButtonOutlet.setupShadow(color: UIColor(rgb: 0xA794D2), opacity: 77, offset: .zero, radius: 8)
+            self.shareButtonOutlet.layer.shadowOpacity = 1
+        }
+        self.delegate?.didTapShare(isShare: self.isShared ?? false)
     }
     
 }

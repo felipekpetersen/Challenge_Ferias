@@ -99,7 +99,7 @@
                     </stackView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t5Y-Rb-yAc" customClass="RoundedView" customModule="ClubeDaJu" customModuleProvider="target">
                         <rect key="frame" x="5" y="19" width="10" height="10"/>
-                        <color key="backgroundColor" red="0.0" green="0.47450980392156861" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.99950450660000001" green="0.51623207329999998" blue="0.48326462510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="10" id="fMn-Cp-EQZ"/>
                             <constraint firstAttribute="height" constant="10" id="ss0-rd-aVc"/>
@@ -135,8 +135,11 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="descLabel" destination="qnT-3B-L7q" id="r2B-Im-P7R"/>
+                <outlet property="favoriteButtonOutlet" destination="CUI-Qr-Qw1" id="oWc-dP-l33"/>
+                <outlet property="mailNotificationView" destination="t5Y-Rb-yAc" id="ev5-bR-TQR"/>
                 <outlet property="notificationView" destination="IRM-i8-tzQ" id="vrx-NT-N3C"/>
                 <outlet property="numberNotificationLabel" destination="776-KE-35O" id="urY-Kb-e2W"/>
+                <outlet property="shareButtonOutlet" destination="rLe-Tj-Rlk" id="08l-Wm-mO8"/>
                 <outlet property="titleLabel" destination="VzY-0r-pfn" id="zGw-dh-HSj"/>
             </connections>
             <point key="canvasLocation" x="173.91304347826087" y="186.16071428571428"/>

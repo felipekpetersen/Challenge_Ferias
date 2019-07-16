@@ -50,6 +50,7 @@ class EditLetterViewController: UIViewController {
                 self.titleTextView.textColor = UIColor(rgb: 0xCACACA)
                 self.contentTextView.text = "Conte sua história"
                 self.contentTextView.textColor = UIColor(rgb: 0xCACACA)
+                self.answersView.isHidden = true
             case .text:
                 break
             }
@@ -106,6 +107,7 @@ class EditLetterViewController: UIViewController {
     }
     
     @objc func didTapAnswers() {
+        performSegue(withIdentifier: "answersSegue", sender: self)
         //TODO:- mover para respostas
     }
     
