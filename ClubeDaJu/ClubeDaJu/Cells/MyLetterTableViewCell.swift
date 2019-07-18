@@ -33,10 +33,19 @@ class MyLetterTableViewCell: UITableViewCell {
 
     }
     
-    func setupCell(letter: Letter) {
-        self.titleLabel.text = letter.title
-        self.descLabel.text = letter.content
-        self.mailNotificationView.isHidden = !(letter.hasNotification ?? false)
+    func setupCell(letter: Letters) {
+        if letter.title == nil || letter.title == "" {
+            titleLabel.text = "Sem titulo"
+        } else {
+            self.titleLabel.text = letter.title
+        }
+        if letter.content == nil || letter.content == "" {
+            descLabel.text = "Sem texto"
+        } else {
+            self.descLabel.text = letter.content
+        }
+        
+        self.mailNotificationView.isHidden = !(letter.hasNotification)
         self.isShared = letter.isShared
         self.isFavorite = letter.isFavorite
         

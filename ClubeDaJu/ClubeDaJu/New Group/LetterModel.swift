@@ -7,21 +7,21 @@
 //
 
 import Foundation
-
-class Letter {
-    var id: String?
-    var title: String?
-    var content: String?
-    var answers: [Answers]?
-    var hasNotification: Bool?
-    var isShared: Bool?
-    var isFavorite: Bool?
-    var createDate: String?
-    var editDate: String?
-}
-
-class Answers {
-    var id: String?
-    var content: String?
-    var isNew: Bool?
-}
+//
+//class Letter {
+//    var id: String?
+//    var title: String?
+//    var content: String?
+//    var answers: [Answers]?
+//    var hasNotification: Bool?
+//    var isShared: Bool?
+//    var isFavorite: Bool?
+//    var createDate: String?
+//    var editDate: String?
+//}
+//
+//class Answers {
+//    var id: String?
+//    var content: String?
+//    var isNew: Bool?
+//}

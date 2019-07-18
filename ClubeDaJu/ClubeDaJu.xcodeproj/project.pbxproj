@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3223B60122DF624B00FC1286 /* ReadLetterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3223B60022DF624B00FC1286 /* ReadLetterViewController.swift */; };
+		3223B61722E0E54000FC1286 /* LetterSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3223B61622E0E54000FC1286 /* LetterSingleton.swift */; };
+		3223B61C22E0EA4000FC1286 /* Letters+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3223B61822E0EA4000FC1286 /* Letters+CoreDataClass.swift */; };
+		3223B61D22E0EA4000FC1286 /* Letters+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3223B61922E0EA4000FC1286 /* Letters+CoreDataProperties.swift */; };
+		3223B61E22E0EA4000FC1286 /* Answers+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3223B61A22E0EA4000FC1286 /* Answers+CoreDataClass.swift */; };
+		3223B61F22E0EA4000FC1286 /* Answers+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3223B61B22E0EA4000FC1286 /* Answers+CoreDataProperties.swift */; };
+		3223B62222E0EC5800FC1286 /* MyLettersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3223B62122E0EC5800FC1286 /* MyLettersViewModel.swift */; };
 		3261EB8022D7ACD00081D1CD /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3261EB7F22D7ACD00081D1CD /* PageViewController.swift */; };
 		3261EB8322D7ECA50081D1CD /* ReceivedLetterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3261EB8122D7ECA50081D1CD /* ReceivedLetterCollectionViewCell.swift */; };
 		3261EB8422D7ECA50081D1CD /* ReceivedLetterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3261EB8222D7ECA50081D1CD /* ReceivedLetterCollectionViewCell.xib */; };
@@ -40,6 +47,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3223B60022DF624B00FC1286 /* ReadLetterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadLetterViewController.swift; sourceTree = "<group>"; };
+		3223B61622E0E54000FC1286 /* LetterSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterSingleton.swift; sourceTree = "<group>"; };
+		3223B61822E0EA4000FC1286 /* Letters+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Letters+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3223B61922E0EA4000FC1286 /* Letters+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Letters+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3223B61A22E0EA4000FC1286 /* Answers+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Answers+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3223B61B22E0EA4000FC1286 /* Answers+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Answers+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3223B62122E0EC5800FC1286 /* MyLettersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLettersViewModel.swift; sourceTree = "<group>"; };
 		3261EB7F22D7ACD00081D1CD /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		3261EB8122D7ECA50081D1CD /* ReceivedLetterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceivedLetterCollectionViewCell.swift; sourceTree = "<group>"; };
 		3261EB8222D7ECA50081D1CD /* ReceivedLetterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReceivedLetterCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -85,6 +99,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3223B62022E0EC4000FC1286 /* New Group1 */ = {
+			isa = PBXGroup;
+			children = (
+				3223B62122E0EC5800FC1286 /* MyLettersViewModel.swift */,
+			);
+			path = "New Group1";
+			sourceTree = "<group>";
+		};
 		3261EB7D22D7AC640081D1CD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +116,7 @@
 				32B7DAE322DB7DE700702E17 /* ContainerViewController.swift */,
 				32B7DAE522DCF7AC00702E17 /* EditLetterViewController.swift */,
 				32E1D79B22DD5D87002C81A1 /* AnswersViewController.swift */,
+				3223B60022DF624B00FC1286 /* ReadLetterViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -125,6 +148,11 @@
 		32648A1C22D6A77E00321507 = {
 			isa = PBXGroup;
 			children = (
+				3223B61822E0EA4000FC1286 /* Letters+CoreDataClass.swift */,
+				3223B61922E0EA4000FC1286 /* Letters+CoreDataProperties.swift */,
+				3223B61A22E0EA4000FC1286 /* Answers+CoreDataClass.swift */,
+				3223B61B22E0EA4000FC1286 /* Answers+CoreDataProperties.swift */,
+				3223B61622E0E54000FC1286 /* LetterSingleton.swift */,
 				32648A2722D6A77E00321507 /* ClubeDaJu */,
 				32648A4122D6AB4A00321507 /* AuxViews */,
 				3261EB8722D8E1AF0081D1CD /* Extension */,
@@ -148,6 +176,7 @@
 				32648A3422D6A78000321507 /* LaunchScreen.storyboard */,
 				32648A2C22D6A77E00321507 /* Main.storyboard */,
 				32E1D79D22DD60D2002C81A1 /* New Group */,
+				3223B62022E0EC4000FC1286 /* New Group1 */,
 				3261EB7D22D7AC640081D1CD /* ViewControllers */,
 				3261EB7E22D7AC790081D1CD /* Cells */,
 				32648A3222D6A78000321507 /* Assets.xcassets */,
@@ -267,21 +296,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3223B61E22E0EA4000FC1286 /* Answers+CoreDataClass.swift in Sources */,
 				32648A3122D6A77E00321507 /* ClubeDaJu.xcdatamodeld in Sources */,
+				3223B61F22E0EA4000FC1286 /* Answers+CoreDataProperties.swift in Sources */,
 				32648A2B22D6A77E00321507 /* MyLettersViewController.swift in Sources */,
 				32B7DAE422DB7DE700702E17 /* ContainerViewController.swift in Sources */,
+				3223B60122DF624B00FC1286 /* ReadLetterViewController.swift in Sources */,
 				32E1D79F22DD60FD002C81A1 /* LetterModel.swift in Sources */,
 				32B7DADE22DA242D00702E17 /* WaterfallLayout.swift in Sources */,
 				3261EB8922D8E1D50081D1CD /* ClubDaJuView.swift in Sources */,
+				3223B62222E0EC5800FC1286 /* MyLettersViewModel.swift in Sources */,
 				3261EB8322D7ECA50081D1CD /* ReceivedLetterCollectionViewCell.swift in Sources */,
 				32648A2922D6A77E00321507 /* AppDelegate.swift in Sources */,
 				32E1D79922DD5C5D002C81A1 /* AnswerTableViewCell.swift in Sources */,
 				32E1D79C22DD5D87002C81A1 /* AnswersViewController.swift in Sources */,
+				3223B61C22E0EA4000FC1286 /* Letters+CoreDataClass.swift in Sources */,
 				3261EB8022D7ACD00081D1CD /* PageViewController.swift in Sources */,
+				3223B61722E0E54000FC1286 /* LetterSingleton.swift in Sources */,
 				32B7DAE222DA2B1600702E17 /* Constants.swift in Sources */,
 				32648A4322D6AB6E00321507 /* RoundedView.swift in Sources */,
 				32648A3F22D6A7CF00321507 /* MyLetterTableViewCell.swift in Sources */,
 				3261EB8622D7EDC70081D1CD /* ReceivedLettersViewController.swift in Sources */,
+				3223B61D22E0EA4000FC1286 /* Letters+CoreDataProperties.swift in Sources */,
 				32B7DAE022DA2B0000702E17 /* ClubeDaJuLabel.swift in Sources */,
 				32B7DAE622DCF7AC00702E17 /* EditLetterViewController.swift in Sources */,
 				3261EB8B22D8E3850081D1CD /* ClubeDaJuUIColor.swift in Sources */,

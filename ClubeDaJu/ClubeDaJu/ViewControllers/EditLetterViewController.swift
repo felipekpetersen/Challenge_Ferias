@@ -30,6 +30,7 @@ class EditLetterViewController: UIViewController {
     
     var viewState: EditLetterViewControllerState?
 //    var letterModel!!!
+    var createdLetter = Letters()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +52,8 @@ class EditLetterViewController: UIViewController {
                 self.contentTextView.text = "Conte sua história"
                 self.contentTextView.textColor = UIColor(rgb: 0xCACACA)
                 self.answersView.isHidden = true
+                self.createdLetter = LetterSingleton.shared.create()
+                self.dateLabel.text = self.createdLetter.createDate
             case .text:
                 break
             }
@@ -103,7 +106,20 @@ class EditLetterViewController: UIViewController {
     
     @objc func didTapCheck() {
         //TODO:- Salvar texto
-        self.dismiss(animated: true, completion: nil)
+        if titleTextView.text != "Insira um Titulo", contentTextView.text != "Conte sua história" {
+            LetterSingleton.shared.updateText(id: self.createdLetter.id ?? "", title: self.titleTextView.text, content: self.contentTextView.text)
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Atenção", message: "Uma carta precisa de um titulo e corpo para ser salvo! Deseja deletar a carta?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancelar", style: .default, handler: { action in
+                alert.dismiss(animated: true, completion: nil)
+                }))
+            alert.addAction(UIAlertAction(title: "Deletar", style: .destructive, handler: { action in
+                LetterSingleton.shared.deleteLetter(id: self.createdLetter.id ?? "")
+                self.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     @objc func didTapAnswers() {
