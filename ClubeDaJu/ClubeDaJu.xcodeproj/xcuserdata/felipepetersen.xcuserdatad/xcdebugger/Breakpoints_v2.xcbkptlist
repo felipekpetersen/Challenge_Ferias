@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LetterSingleton.swift"
-            timestampString = "585176814.6475151"
+            timestampString = "585254243.812628"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "create()"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "getDate()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -15,6 +15,7 @@ class MyLettersViewController: UIViewController {
     
     let viewModel = MyLettersViewModel()
     let myLetterCell = "MyLetterTableViewCell"
+    var selectedIndex: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +47,13 @@ class MyLettersViewController: UIViewController {
             self.emptyView.isHidden = true 
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? EditLetterViewController {
+            vc.createdLetter = self.viewModel.letters?[selectedIndex?.row ?? 0]
+            vc.viewState = .text
+        }
+    }
 }
 
 extension MyLettersViewController: UITableViewDataSource, UITableViewDelegate {
@@ -65,9 +73,8 @@ extension MyLettersViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let destinationVC = EditLetterViewController()
-        destinationVC.viewState = .text
-        destinationVC.createdLetter = self.viewModel.letters?[indexPath.row] ?? Letters()
+        self.selectedIndex = indexPath
+//        destinationVC.createdLetter = self.viewModel.letters?[indexPath.row] ?? Letters()
         performSegue(withIdentifier: "presentEdit", sender: self)
     }
     
