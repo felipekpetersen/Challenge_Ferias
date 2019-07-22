@@ -35,6 +35,8 @@
 		32648A4E22D6AE0C00321507 /* Kievit_Medium_Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32648A4822D6AE0C00321507 /* Kievit_Medium_Italic.ttf */; };
 		32648A4F22D6AE0C00321507 /* Kievit_Regular_SC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32648A4922D6AE0C00321507 /* Kievit_Regular_SC.ttf */; };
 		32648A5022D6AE0C00321507 /* Kievit_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32648A4A22D6AE0C00321507 /* Kievit_Bold.ttf */; };
+		32B1FD5B22E3711400298A0D /* ShareModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B1FD5A22E3711400298A0D /* ShareModalViewController.swift */; };
+		32B1FD5D22E62B7400298A0D /* ClubeDaJuScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B1FD5C22E62B7400298A0D /* ClubeDaJuScrollView.swift */; };
 		32B7DADE22DA242D00702E17 /* WaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7DADD22DA242D00702E17 /* WaterfallLayout.swift */; };
 		32B7DAE022DA2B0000702E17 /* ClubeDaJuLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7DADF22DA2B0000702E17 /* ClubeDaJuLabel.swift */; };
 		32B7DAE222DA2B1600702E17 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7DAE122DA2B1600702E17 /* Constants.swift */; };
@@ -77,6 +79,8 @@
 		32648A4822D6AE0C00321507 /* Kievit_Medium_Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kievit_Medium_Italic.ttf; sourceTree = "<group>"; };
 		32648A4922D6AE0C00321507 /* Kievit_Regular_SC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kievit_Regular_SC.ttf; sourceTree = "<group>"; };
 		32648A4A22D6AE0C00321507 /* Kievit_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kievit_Bold.ttf; sourceTree = "<group>"; };
+		32B1FD5A22E3711400298A0D /* ShareModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareModalViewController.swift; sourceTree = "<group>"; };
+		32B1FD5C22E62B7400298A0D /* ClubeDaJuScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubeDaJuScrollView.swift; sourceTree = "<group>"; };
 		32B7DADD22DA242D00702E17 /* WaterfallLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallLayout.swift; sourceTree = "<group>"; };
 		32B7DADF22DA2B0000702E17 /* ClubeDaJuLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubeDaJuLabel.swift; sourceTree = "<group>"; };
 		32B7DAE122DA2B1600702E17 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 				32B7DAE522DCF7AC00702E17 /* EditLetterViewController.swift */,
 				32E1D79B22DD5D87002C81A1 /* AnswersViewController.swift */,
 				3223B60022DF624B00FC1286 /* ReadLetterViewController.swift */,
+				32B1FD5A22E3711400298A0D /* ShareModalViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 				3261EB8A22D8E3850081D1CD /* ClubeDaJuUIColor.swift */,
 				32B7DADD22DA242D00702E17 /* WaterfallLayout.swift */,
 				32B7DADF22DA2B0000702E17 /* ClubeDaJuLabel.swift */,
+				32B1FD5C22E62B7400298A0D /* ClubeDaJuScrollView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -303,6 +309,7 @@
 				32B7DAE422DB7DE700702E17 /* ContainerViewController.swift in Sources */,
 				3223B60122DF624B00FC1286 /* ReadLetterViewController.swift in Sources */,
 				32E1D79F22DD60FD002C81A1 /* LetterModel.swift in Sources */,
+				32B1FD5D22E62B7400298A0D /* ClubeDaJuScrollView.swift in Sources */,
 				32B7DADE22DA242D00702E17 /* WaterfallLayout.swift in Sources */,
 				3261EB8922D8E1D50081D1CD /* ClubDaJuView.swift in Sources */,
 				3223B62222E0EC5800FC1286 /* MyLettersViewModel.swift in Sources */,
@@ -316,6 +323,7 @@
 				32B7DAE222DA2B1600702E17 /* Constants.swift in Sources */,
 				32648A4322D6AB6E00321507 /* RoundedView.swift in Sources */,
 				32648A3F22D6A7CF00321507 /* MyLetterTableViewCell.swift in Sources */,
+				32B1FD5B22E3711400298A0D /* ShareModalViewController.swift in Sources */,
 				3261EB8622D7EDC70081D1CD /* ReceivedLettersViewController.swift in Sources */,
 				3223B61D22E0EA4000FC1286 /* Letters+CoreDataProperties.swift in Sources */,
 				32B7DAE022DA2B0000702E17 /* ClubeDaJuLabel.swift in Sources */,

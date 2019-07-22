@@ -19,6 +19,7 @@ class EditLetterViewController: UIViewController {
     
     @IBOutlet weak var dotsView: UIView!
     @IBOutlet weak var shareView: UIView!
+    @IBOutlet weak var shareImageView: UIImageView!
     @IBOutlet weak var checkView: UIView!
     
     @IBOutlet weak var saveLabel: UILabel!
@@ -27,16 +28,22 @@ class EditLetterViewController: UIViewController {
     @IBOutlet weak var contentTextView: UITextView!
     
     @IBOutlet weak var answersView: RoundedView!
+    @IBOutlet weak var answerLabel: UILabel!
     
     var viewState: EditLetterViewControllerState?
     var createdLetter: Letters?
     
     override func viewDidLoad() {
+        setupAutoScrollWhenKeyboardShowsUp()
         super.viewDidLoad()
         self.setupView()
         self.setupViewTaps()
-        self.setupShadow()
         self.checkEmptyness()
+    }
+    
+    // MARK:- Scroll View Content Inset
+    override func setScrollViewContentInset(_ inset: UIEdgeInsets) {
+        scrollView.contentInset = inset
     }
     
     //MARK:- Setups
@@ -68,9 +75,23 @@ class EditLetterViewController: UIViewController {
     }
     
     //Aparencia do botao, caso ele deva aparecer ou nao
-    
     func setupAnswersButton() {
-        
+        if let isShared = self.createdLetter?.isShared{
+            self.answersView.isHidden = !isShared
+            self.shareImageView.image = UIImage(named: isShared ? "editor_share_selected" : "editor_share_unselected")
+            if let hasNotification = self.createdLetter?.hasNotification {
+                if hasNotification {
+                    self.answerLabel.text = "Novas Respostas"
+                    self.answersView.backgroundColor = UIColor(rgb: 0xFF847B)
+                    self.answersView.setupShadow(color: UIColor(rgb: 0xFF847B), opacity: 0.54, offset: .zero, radius: 7)
+                } else {
+                    self.answerLabel.text = "Ver Respostas"
+                    self.answersView.backgroundColor = UIColor(rgb: 0x756892)
+                    self.answersView.setupShadow(color: UIColor(rgb: 0x756892), opacity: 0.54, offset: .zero, radius: 7)
+                }
+            }
+        }
+    
     }
     
     func setupViewTaps() {
@@ -85,10 +106,6 @@ class EditLetterViewController: UIViewController {
         self.shareView.addGestureRecognizer(shareTap)
         self.checkView.addGestureRecognizer(checkTap)
         self.answersView.addGestureRecognizer(answersTap)
-    }
-    
-    func setupShadow() {
-        self.answersView.setupShadow(color: UIColor(rgb: 0x756892), opacity: 0.54, offset: .zero, radius: 7)
     }
     
     func checkEmptyness() {

@@ -30,7 +30,6 @@ class ReadLetterViewController: UIViewController {
     @IBOutlet weak var contentLetterTextView: UITextView!
     @IBOutlet weak var letterBottomConstraint: NSLayoutConstraint!
     
-    
     //MARK:-Answer
     @IBOutlet weak var answerScrollView: UIScrollView!
     @IBOutlet weak var answerTextView: UITextView!
@@ -46,9 +45,15 @@ class ReadLetterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupAutoScrollWhenKeyboardShowsUp()
         self.setupView(for: viewState)
         self.checkContent()
         self.viewTaps()
+    }
+    
+    // MARK:- Scroll View Content Inset
+    override func setScrollViewContentInset(_ inset: UIEdgeInsets) {
+        answerScrollView.contentInset = inset
     }
     
     func setupView(for state: ReadLetterViewControllerState) {

@@ -90,6 +90,56 @@ class LetterSingleton{
         }
     }
     
+    func updateShared(id: String) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Letters")
+        let predicate = NSPredicate(format: "id == '\(id)'")
+        fetchRequest.predicate = predicate
+        do {
+            let object = try managedContext.fetch(fetchRequest)
+            if object.count == 1 {
+                let objectUpdate = object[0] as! NSManagedObject
+                let isShared = objectUpdate.value(forKey: "isShared") as! Bool
+                objectUpdate.setValue(!isShared, forKey: "isShared")
+                do {
+                    try managedContext.save()
+                } catch let error as NSError {
+                    print(error.code)
+                }
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    func updateFavorite(id: String) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Letters")
+        let predicate = NSPredicate(format: "id == '\(id)'")
+        fetchRequest.predicate = predicate
+        do {
+            let object = try managedContext.fetch(fetchRequest)
+            if object.count == 1 {
+                let objectUpdate = object[0] as! NSManagedObject
+                let isShared = objectUpdate.value(forKey: "isFavorite") as! Bool
+                objectUpdate.setValue(!isShared, forKey: "isFavorite")
+                do {
+                    try managedContext.save()
+                } catch let error as NSError {
+                    print(error.code)
+                }
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
     func deleteLetter(id: String) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return

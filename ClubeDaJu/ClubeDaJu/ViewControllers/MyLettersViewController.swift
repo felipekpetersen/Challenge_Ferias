@@ -16,6 +16,7 @@ class MyLettersViewController: UIViewController {
     let viewModel = MyLettersViewModel()
     let myLetterCell = "MyLetterTableViewCell"
     var selectedIndex: IndexPath?
+    var letterSharedId: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +53,9 @@ class MyLettersViewController: UIViewController {
         if let vc = segue.destination as? EditLetterViewController {
             vc.createdLetter = self.viewModel.letters?[selectedIndex?.row ?? 0]
             vc.viewState = .text
+        } else if let vc = segue.destination as? ShareModalViewController {
+            vc.delegate = self
+            vc.letterId = self.letterSharedId
         }
     }
 }
@@ -69,6 +73,7 @@ extension MyLettersViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: myLetterCell, for: indexPath) as! MyLetterTableViewCell
         cell.setupCell(letter: self.viewModel.getLetterForRow(index: indexPath.row))
+        cell.delegate = self
         return cell
     }
     
@@ -81,4 +86,51 @@ extension MyLettersViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 146 
     }
+}
+
+extension MyLettersViewController: MyLetterTableViewCellDelegate {
+    func didTapFavorite(isFavorite: Bool, id: String) {
+        LetterSingleton.shared.updateFavorite(id: id)
+        self.loadData()
+    }
+    
+    func didTapShare(isShare: Bool, id: String) {
+        if isShare {
+            self.letterSharedId = id
+            performSegue(withIdentifier: "showModalFromHome", sender: self)
+        } else {
+            let alert = UIAlertController(title: "Atenção", message: "Deseja cancelar o envio da carta?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Sim", style: .destructive, handler: { action in
+                //TODO: Deletar do backEnd
+                LetterSingleton.shared.updateShared(id: id)
+                self.loadData()
+                alert.dismiss(animated: true, completion: nil)
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Não", style: .default, handler: { action in
+                self.loadData()
+//                LetterSingleton.shared.updateShared(id: id)
+                self.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+    }
+    
+    
+}
+
+extension MyLettersViewController: ShareModalViewControllerDelegate {
+    func didTapShare(id: String?) {
+        if let id = id {
+            LetterSingleton.shared.updateShared(id: id)
+            self.loadData()
+        }
+    }
+    
+    func didTapDontShare() {
+        self.loadData()
+    }
+    
+ 
 }

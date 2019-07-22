@@ -230,6 +230,7 @@
                         <viewLayoutGuide key="safeArea" id="2nl-zt-hg5"/>
                     </view>
                     <connections>
+                        <outlet property="answerLabel" destination="kTL-Cl-wA8" id="sZw-Wo-D7o"/>
                         <outlet property="answersView" destination="Z72-3M-Nsn" id="UfE-xk-JrY"/>
                         <outlet property="checkView" destination="g8G-vk-Yay" id="2Mt-Qs-DII"/>
                         <outlet property="contentTextView" destination="6ax-mz-jcU" id="UrX-c1-VHg"/>
@@ -237,6 +238,7 @@
                         <outlet property="dotsView" destination="R28-Vr-Jba" id="4nF-Bz-RGe"/>
                         <outlet property="saveLabel" destination="j3e-Ks-c7T" id="Qcb-Vh-3Hs"/>
                         <outlet property="scrollView" destination="A4r-AJ-Htv" id="qVn-zV-atX"/>
+                        <outlet property="shareImageView" destination="1h2-aQ-JcV" id="MYM-y6-kmh"/>
                         <outlet property="shareView" destination="QcY-jO-BTk" id="wQN-od-DdY"/>
                         <outlet property="titleTextView" destination="tL2-S1-1v5" id="rtH-of-nz8"/>
                         <segue destination="yuY-qz-8Cd" kind="show" identifier="answersSegue" id="ETw-Jl-sDu"/>
@@ -508,6 +510,7 @@
                         <outlet property="emptyView" destination="N6C-9B-xU3" id="o6R-OP-puV"/>
                         <outlet property="tableView" destination="dRn-Gt-ZZb" id="BcZ-Xs-gpz"/>
                         <segue destination="gGD-Zf-uAV" kind="show" identifier="presentEdit" id="NcR-kS-XfC"/>
+                        <segue destination="bPy-8A-bpL" kind="presentation" identifier="showModalFromHome" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="84t-AY-Vgk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -909,12 +912,107 @@
             </objects>
             <point key="canvasLocation" x="1604" y="93.842364532019715"/>
         </scene>
+        <!--Share Modal View Controller-->
+        <scene sceneID="r9R-7B-I1f">
+            <objects>
+                <viewController id="bPy-8A-bpL" customClass="ShareModalViewController" customModule="ClubeDaJu" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UjL-XR-Oar">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tdC-uP-pPp" customClass="RoundedView" customModule="ClubeDaJu" customModuleProvider="target">
+                                <rect key="frame" x="72.666666666666686" y="241" width="230" height="330"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="basket" translatesAutoresizingMaskIntoConstraints="NO" id="SOe-0u-sTj">
+                                        <rect key="frame" x="22.333333333333329" y="-110" width="185" height="250"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="2nt-ue-Tbe"/>
+                                            <constraint firstAttribute="width" constant="185" id="Das-Eo-Jof"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deseja enviar essa carta para receber respostas dos outros usúarios?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9F-th-9GJ">
+                                        <rect key="frame" x="16" y="156" width="198" height="50"/>
+                                        <fontDescription key="fontDescription" name="Kievit-Medium" family="Kievit" pointSize="18"/>
+                                        <color key="textColor" red="0.25098039220000001" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PSm-7J-eoj" customClass="RoundedView" customModule="ClubeDaJu" customModuleProvider="target">
+                                        <rect key="frame" x="30" y="222" width="170" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enviar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeh-WA-1Oj">
+                                                <rect key="frame" x="60.666666666666671" y="16.666666666666686" width="48.333333333333329" height="17"/>
+                                                <fontDescription key="fontDescription" name="Kievit-Medium" family="Kievit" pointSize="18"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="1" green="0.51764705882352935" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="jeh-WA-1Oj" firstAttribute="centerY" secondItem="PSm-7J-eoj" secondAttribute="centerY" id="AEq-WN-4fQ"/>
+                                            <constraint firstItem="jeh-WA-1Oj" firstAttribute="centerX" secondItem="PSm-7J-eoj" secondAttribute="centerX" id="GCP-lS-cqf"/>
+                                            <constraint firstAttribute="width" constant="170" id="UaF-b8-E6J"/>
+                                            <constraint firstAttribute="height" constant="50" id="chu-0x-dRA"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k4D-Af-a8S">
+                                        <rect key="frame" x="77.333333333333329" y="284" width="74.999999999999986" height="27"/>
+                                        <fontDescription key="fontDescription" name="Kievit-Medium" family="Kievit" pointSize="16"/>
+                                        <state key="normal" title="Não Enviar">
+                                            <color key="titleColor" red="0.99950450660000001" green="0.51623207329999998" blue="0.48326462510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapDontSend:" destination="bPy-8A-bpL" eventType="touchUpInside" id="RYj-DH-mqU"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="G9F-th-9GJ" firstAttribute="centerY" secondItem="tdC-uP-pPp" secondAttribute="centerY" constant="16" id="7gr-DR-KkL"/>
+                                    <constraint firstItem="SOe-0u-sTj" firstAttribute="top" secondItem="tdC-uP-pPp" secondAttribute="top" constant="-110" id="Edq-x4-zYV"/>
+                                    <constraint firstItem="k4D-Af-a8S" firstAttribute="centerX" secondItem="tdC-uP-pPp" secondAttribute="centerX" id="G0u-GF-7ug"/>
+                                    <constraint firstItem="PSm-7J-eoj" firstAttribute="centerX" secondItem="tdC-uP-pPp" secondAttribute="centerX" id="IFe-O2-cUO"/>
+                                    <constraint firstAttribute="trailing" secondItem="G9F-th-9GJ" secondAttribute="trailing" constant="16" id="QEX-wS-sfG"/>
+                                    <constraint firstItem="G9F-th-9GJ" firstAttribute="leading" secondItem="tdC-uP-pPp" secondAttribute="leading" constant="16" id="Wdg-Yu-INw"/>
+                                    <constraint firstItem="SOe-0u-sTj" firstAttribute="centerX" secondItem="tdC-uP-pPp" secondAttribute="centerX" id="a05-8K-d1Y"/>
+                                    <constraint firstAttribute="height" constant="330" id="tuJ-UD-SH7"/>
+                                    <constraint firstAttribute="width" constant="230" id="y3q-2N-K7K"/>
+                                    <constraint firstItem="k4D-Af-a8S" firstAttribute="top" secondItem="PSm-7J-eoj" secondAttribute="bottom" constant="12" id="yfL-4o-LzH"/>
+                                    <constraint firstItem="PSm-7J-eoj" firstAttribute="top" secondItem="G9F-th-9GJ" secondAttribute="bottom" constant="16" id="z2f-Qg-Brb"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="24"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.7803921568627451" green="0.7803921568627451" blue="0.7803921568627451" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="tdC-uP-pPp" firstAttribute="centerY" secondItem="UjL-XR-Oar" secondAttribute="centerY" id="5Xm-Np-a77"/>
+                            <constraint firstItem="tdC-uP-pPp" firstAttribute="centerX" secondItem="UjL-XR-Oar" secondAttribute="centerX" id="Fy9-az-EQR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ahx-SX-iC6"/>
+                    </view>
+                    <connections>
+                        <outlet property="sendView" destination="PSm-7J-eoj" id="e2Y-Wg-VIf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GD6-fu-rJu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="806" y="-1379"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow_down" width="14" height="7"/>
         <image name="arrow_left" width="18" height="71"/>
         <image name="arrow_right" width="18" height="71"/>
         <image name="background_home" width="375" height="812"/>
+        <image name="basket" width="185" height="247"/>
         <image name="check" width="21" height="19"/>
         <image name="degrade_branco_home-1" width="322" height="185"/>
         <image name="degrade_editor" width="375" height="79"/>

@@ -9,8 +9,8 @@
 import UIKit
 
 protocol MyLetterTableViewCellDelegate {
-    func didTapFavorite(isFavorite: Bool)
-    func didTapShare(isShare: Bool)
+    func didTapFavorite(isFavorite: Bool, id: String)
+    func didTapShare(isShare: Bool, id: String)
 }
 
 class MyLetterTableViewCell: UITableViewCell {
@@ -25,6 +25,7 @@ class MyLetterTableViewCell: UITableViewCell {
     
     var isFavorite: Bool?
     var isShared: Bool?
+    var id: String?
     var delegate: MyLetterTableViewCellDelegate?
 
     override func awakeFromNib() {
@@ -48,37 +49,53 @@ class MyLetterTableViewCell: UITableViewCell {
         self.mailNotificationView.isHidden = !(letter.hasNotification)
         self.isShared = letter.isShared
         self.isFavorite = letter.isFavorite
+        self.id = letter.id
         
+        self.setupFavoriteState()
+        self.setupSharedState()
     }
     
-    @IBAction func didTapFavorite(_ sender: Any) {
+    func setupFavoriteState() {
         if isFavorite ?? false {
-            self.isFavorite = false
-            self.favoriteButtonOutlet.setBackgroundImage(UIImage(named: "favorite_unselected"), for: .normal)
-            self.favoriteButtonOutlet.layer.shadowOpacity = 0
-            
-        } else {
-            self.isFavorite = true
             self.favoriteButtonOutlet.setBackgroundImage(UIImage(named: "favorite_selected"), for: .normal)
             self.favoriteButtonOutlet.setupShadow(color: UIColor(rgb: 0xF7DB76), opacity: 94, offset: .zero, radius: 8)
             self.favoriteButtonOutlet.layer.shadowOpacity = 1
+            
+        } else {
+            self.favoriteButtonOutlet.setBackgroundImage(UIImage(named: "favorite_unselected"), for: .normal)
+            self.favoriteButtonOutlet.layer.shadowOpacity = 0
         }
-        self.delegate?.didTapFavorite(isFavorite: self.isFavorite ?? false)
     }
     
-    @IBAction func didTapShare(_ sender: Any) {
+    func setupSharedState() {
         if isShared ?? false {
-            self.isShared = false
-            self.shareButtonOutlet.setBackgroundImage(UIImage(named: "share_unselected"), for: .normal)
-            self.shareButtonOutlet.layer.shadowOpacity = 0
-           
-        } else {
-            self.isShared = true
             self.shareButtonOutlet.setBackgroundImage(UIImage(named: "share_selected"), for: .normal)
             self.shareButtonOutlet.setupShadow(color: UIColor(rgb: 0xA794D2), opacity: 77, offset: .zero, radius: 8)
             self.shareButtonOutlet.layer.shadowOpacity = 1
+            
+        } else {
+            self.shareButtonOutlet.setBackgroundImage(UIImage(named: "share_unselected"), for: .normal)
+            self.shareButtonOutlet.layer.shadowOpacity = 0
+            
         }
-        self.delegate?.didTapShare(isShare: self.isShared ?? false)
+    }
+    
+    @IBAction func didTapFavorite(_ sender: Any) {
+//        if let id = id {
+//            LetterSingleton.shared.updateFavorite(id: id)
+//        }
+//        self.isFavorite = !(self.isFavorite ?? true)
+//        self.setupFavoriteState()
+        self.delegate?.didTapFavorite(isFavorite: self.isFavorite ?? false, id: self.id ?? "")
+    }
+    
+    @IBAction func didTapShare(_ sender: Any) {
+//        if let id = id {
+//            LetterSingleton.shared.updateShared(id: id)
+//        }
+        self.isShared = !(self.isShared ?? true)
+//        self.setupSharedState()
+        self.delegate?.didTapShare(isShare: self.isShared ?? false, id: self.id ?? "")
     }
     
 }
