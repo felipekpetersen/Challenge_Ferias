@@ -16,10 +16,9 @@ extension Answers {
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Answers> {
         return NSFetchRequest<Answers>(entityName: "Answers")
     }
-
+    
     @NSManaged public var id: String?
     @NSManaged public var content: String?
     @NSManaged public var isNew: Bool
     @NSManaged public var letters: Letters?
-
 }

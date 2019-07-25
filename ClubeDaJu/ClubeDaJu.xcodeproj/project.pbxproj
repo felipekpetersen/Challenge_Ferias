@@ -35,6 +35,9 @@
 		32648A4E22D6AE0C00321507 /* Kievit_Medium_Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32648A4822D6AE0C00321507 /* Kievit_Medium_Italic.ttf */; };
 		32648A4F22D6AE0C00321507 /* Kievit_Regular_SC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32648A4922D6AE0C00321507 /* Kievit_Regular_SC.ttf */; };
 		32648A5022D6AE0C00321507 /* Kievit_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32648A4A22D6AE0C00321507 /* Kievit_Bold.ttf */; };
+		327F14F422EA129F00206C4E /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327F14F322EA129F00206C4E /* UserRequest.swift */; };
+		327F14F622EA132900206C4E /* RequestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327F14F522EA132900206C4E /* RequestConstants.swift */; };
+		327F14F822EA1BCF00206C4E /* LetterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327F14F722EA1BCF00206C4E /* LetterRequest.swift */; };
 		32B1FD5B22E3711400298A0D /* ShareModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B1FD5A22E3711400298A0D /* ShareModalViewController.swift */; };
 		32B1FD5D22E62B7400298A0D /* ClubeDaJuScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B1FD5C22E62B7400298A0D /* ClubeDaJuScrollView.swift */; };
 		32B7DADE22DA242D00702E17 /* WaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7DADD22DA242D00702E17 /* WaterfallLayout.swift */; };
@@ -79,6 +82,9 @@
 		32648A4822D6AE0C00321507 /* Kievit_Medium_Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kievit_Medium_Italic.ttf; sourceTree = "<group>"; };
 		32648A4922D6AE0C00321507 /* Kievit_Regular_SC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kievit_Regular_SC.ttf; sourceTree = "<group>"; };
 		32648A4A22D6AE0C00321507 /* Kievit_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kievit_Bold.ttf; sourceTree = "<group>"; };
+		327F14F322EA129F00206C4E /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
+		327F14F522EA132900206C4E /* RequestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestConstants.swift; sourceTree = "<group>"; };
+		327F14F722EA1BCF00206C4E /* LetterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterRequest.swift; sourceTree = "<group>"; };
 		32B1FD5A22E3711400298A0D /* ShareModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareModalViewController.swift; sourceTree = "<group>"; };
 		32B1FD5C22E62B7400298A0D /* ClubeDaJuScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubeDaJuScrollView.swift; sourceTree = "<group>"; };
 		32B7DADD22DA242D00702E17 /* WaterfallLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterfallLayout.swift; sourceTree = "<group>"; };
@@ -103,12 +109,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3223B62022E0EC4000FC1286 /* New Group1 */ = {
+		3223B62022E0EC4000FC1286 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				3223B62122E0EC5800FC1286 /* MyLettersViewModel.swift */,
 			);
-			path = "New Group1";
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		3261EB7D22D7AC640081D1CD /* ViewControllers */ = {
@@ -178,11 +184,12 @@
 		32648A2722D6A77E00321507 /* ClubeDaJu */ = {
 			isa = PBXGroup;
 			children = (
+				327F14F222EA129100206C4E /* RequestModel */,
 				32648A2822D6A77E00321507 /* AppDelegate.swift */,
 				32648A3422D6A78000321507 /* LaunchScreen.storyboard */,
 				32648A2C22D6A77E00321507 /* Main.storyboard */,
-				32E1D79D22DD60D2002C81A1 /* New Group */,
-				3223B62022E0EC4000FC1286 /* New Group1 */,
+				32E1D79D22DD60D2002C81A1 /* Model */,
+				3223B62022E0EC4000FC1286 /* ViewModel */,
 				3261EB7D22D7AC640081D1CD /* ViewControllers */,
 				3261EB7E22D7AC790081D1CD /* Cells */,
 				32648A3222D6A78000321507 /* Assets.xcassets */,
@@ -214,12 +221,22 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		32E1D79D22DD60D2002C81A1 /* New Group */ = {
+		327F14F222EA129100206C4E /* RequestModel */ = {
+			isa = PBXGroup;
+			children = (
+				327F14F522EA132900206C4E /* RequestConstants.swift */,
+				327F14F322EA129F00206C4E /* UserRequest.swift */,
+				327F14F722EA1BCF00206C4E /* LetterRequest.swift */,
+			);
+			path = RequestModel;
+			sourceTree = "<group>";
+		};
+		32E1D79D22DD60D2002C81A1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				32E1D79E22DD60FD002C81A1 /* LetterModel.swift */,
 			);
-			path = "New Group";
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,10 +336,13 @@
 				32E1D79C22DD5D87002C81A1 /* AnswersViewController.swift in Sources */,
 				3223B61C22E0EA4000FC1286 /* Letters+CoreDataClass.swift in Sources */,
 				3261EB8022D7ACD00081D1CD /* PageViewController.swift in Sources */,
+				327F14F622EA132900206C4E /* RequestConstants.swift in Sources */,
 				3223B61722E0E54000FC1286 /* LetterSingleton.swift in Sources */,
 				32B7DAE222DA2B1600702E17 /* Constants.swift in Sources */,
 				32648A4322D6AB6E00321507 /* RoundedView.swift in Sources */,
+				327F14F422EA129F00206C4E /* UserRequest.swift in Sources */,
 				32648A3F22D6A7CF00321507 /* MyLetterTableViewCell.swift in Sources */,
+				327F14F822EA1BCF00206C4E /* LetterRequest.swift in Sources */,
 				32B1FD5B22E3711400298A0D /* ShareModalViewController.swift in Sources */,
 				3261EB8622D7EDC70081D1CD /* ReceivedLettersViewController.swift in Sources */,
 				3223B61D22E0EA4000FC1286 /* Letters+CoreDataProperties.swift in Sources */,

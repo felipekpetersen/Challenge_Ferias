@@ -49,8 +49,7 @@ class MyLetterTableViewCell: UITableViewCell {
         self.mailNotificationView.isHidden = !(letter.hasNotification)
         self.isShared = letter.isShared
         self.isFavorite = letter.isFavorite
-        self.id = letter.id
-        
+        self.id = letter.letterId
         self.setupFavoriteState()
         self.setupSharedState()
     }

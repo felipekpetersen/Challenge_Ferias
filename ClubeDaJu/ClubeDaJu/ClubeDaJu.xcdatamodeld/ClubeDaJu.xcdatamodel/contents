@@ -11,14 +11,14 @@
         <attribute name="createDate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="editDate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="hasNotification" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="isShared" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="letterId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="answer" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Answers" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Letters" positionX="-63" positionY="-18" width="128" height="178"/>
         <element name="Answers" positionX="291.65234375" positionY="-5.33203125" width="128" height="103"/>
+        <element name="Letters" positionX="-63" positionY="-18" width="128" height="180"/>
     </elements>
 </model>

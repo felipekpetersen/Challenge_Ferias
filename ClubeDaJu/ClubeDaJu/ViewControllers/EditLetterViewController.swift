@@ -65,7 +65,7 @@ class EditLetterViewController: UIViewController {
             case .text:
                 self.titleTextView.text = self.createdLetter?.title
                 self.contentTextView.text = self.createdLetter?.content
-                if let id = self.createdLetter?.id {
+                if let id = self.createdLetter?.letterId {
                     LetterSingleton.shared.updateEditDate(id: id)
                     self.dateLabel.text = "\(self.createdLetter?.createDate ?? "Sem data") - \(self.createdLetter?.editDate ?? "Sem data")"
                 }
@@ -131,7 +131,7 @@ class EditLetterViewController: UIViewController {
     @objc func didTapDots() {
         let optionMenu = UIAlertController(title: nil, message: "Escolha uma opção", preferredStyle: .actionSheet)
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: { action in
-            if let id = self.createdLetter?.id {
+            if let id = self.createdLetter?.letterId {
                 LetterSingleton.shared.deleteLetter(id: id)
             }
             self.dismiss(animated: true, completion: nil)
@@ -149,7 +149,7 @@ class EditLetterViewController: UIViewController {
     //Verifica se existe um texto, se sim, salva-o. caso contrario, pergunta se pode deletar.
     @objc func didTapCheck() {
         if titleTextView.text != "Insira um Titulo", contentTextView.text != "Conte sua história" {
-            LetterSingleton.shared.updateText(id: self.createdLetter?.id ?? "", title: self.titleTextView.text, content: self.contentTextView.text)
+            LetterSingleton.shared.updateText(id: self.createdLetter?.letterId ?? "", title: self.titleTextView.text, content: self.contentTextView.text)
             self.dismiss(animated: true, completion: nil)
         } else {
             let alert = UIAlertController(title: "Atenção", message: "Uma carta precisa de um titulo e corpo para ser salvo! Deseja deletar a carta?", preferredStyle: .alert)
@@ -157,7 +157,7 @@ class EditLetterViewController: UIViewController {
                 alert.dismiss(animated: true, completion: nil)
                 }))
             alert.addAction(UIAlertAction(title: "Deletar", style: .destructive, handler: { action in
-                if let id = self.createdLetter?.id {
+                if let id = self.createdLetter?.letterId {
                     LetterSingleton.shared.deleteLetter(id: id)
                 }
                 self.dismiss(animated: true, completion: nil)

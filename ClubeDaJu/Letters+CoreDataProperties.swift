@@ -2,7 +2,7 @@
 //  Letters+CoreDataProperties.swift
 //  ClubeDaJu
 //
-//  Created by Felipe Petersen on 18/07/19.
+//  Created by Felipe Petersen on 25/07/19.
 //  Copyright © 2019 Felipe Petersen. All rights reserved.
 //
 //
@@ -17,15 +17,14 @@ extension Letters {
         return NSFetchRequest<Letters>(entityName: "Letters")
     }
 
-    @NSManaged public var id: String?
-    @NSManaged public var title: String?
     @NSManaged public var content: String?
-    @NSManaged public var hasNotification: Bool
-    @NSManaged public var isShared: Bool
-    @NSManaged public var isFavorite: Bool
     @NSManaged public var createDate: String?
     @NSManaged public var editDate: String?
-    @NSManaged public var answers: NSObject?
+    @NSManaged public var hasNotification: Bool
+    @NSManaged public var letterId: String?
+    @NSManaged public var isFavorite: Bool
+    @NSManaged public var isShared: Bool
+    @NSManaged public var title: String?
     @NSManaged public var answer: NSSet?
 
 }

@@ -15,8 +15,23 @@ class ContainerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.newLetterButtonOutlet.setupShadow(color: UIColor(rgb: 0x756892), opacity: 0.5, offset: .zero, radius: 14)
+        checkUser()
     }
     
+    func checkUser() {
+        if UserDefaults.standard.string(forKey: Constants.USER_UUID) == nil {
+            self.register()
+        }
+    }
+    
+    func register() {
+        let uuid = UUID().uuidString
+        UserRequest().signUp(uuid: uuid) { (success, error) in
+            if let _ = success {
+                UserDefaults.standard.set(uuid, forKey: Constants.USER_UUID)
+            }
+        }
+    }
     
     @IBAction func didTapCreateLetter(_ sender: Any) {
         //TODO: Animate

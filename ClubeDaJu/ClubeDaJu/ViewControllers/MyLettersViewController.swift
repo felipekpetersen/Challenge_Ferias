@@ -114,17 +114,16 @@ extension MyLettersViewController: MyLetterTableViewCellDelegate {
             }))
             self.present(alert, animated: true, completion: nil)
         }
-        
     }
-    
-    
 }
 
 extension MyLettersViewController: ShareModalViewControllerDelegate {
     func didTapShare(id: String?) {
         if let id = id {
-            LetterSingleton.shared.updateShared(id: id)
-            self.loadData()
+            LetterSingleton.shared.sendLetter(id: id, success: {
+                LetterSingleton.shared.updateShared(id: id)
+                self.loadData()
+            })
         }
     }
     

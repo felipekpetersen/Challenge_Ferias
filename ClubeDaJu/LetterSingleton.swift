@@ -16,7 +16,7 @@ class LetterSingleton{
     
     static let shared:LetterSingleton = LetterSingleton()
     
-    var id: String?
+    var letterId: String?
     var title: String?
     var content: String?
 //    var answers: [Answers]?
@@ -29,7 +29,7 @@ class LetterSingleton{
     var context: NSManagedObjectContext?
     
     private init(){
-        self.id = ""
+        self.letterId = ""
         self.title = ""
         self.content = ""
         self.hasNotification = false
@@ -47,7 +47,7 @@ class LetterSingleton{
         }
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Letters")
-        let predicate = NSPredicate(format: "id == '\(id)'")
+        let predicate = NSPredicate(format: "letterId == '\(id)'")
         fetchRequest.predicate = predicate
         do {
             let object = try managedContext.fetch(fetchRequest)
@@ -72,7 +72,7 @@ class LetterSingleton{
         }
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Letters")
-        let predicate = NSPredicate(format: "id == '\(id)'")
+        let predicate = NSPredicate(format: "letterId == '\(id)'")
         fetchRequest.predicate = predicate
         do {
             let object = try managedContext.fetch(fetchRequest)
@@ -90,13 +90,44 @@ class LetterSingleton{
         }
     }
     
+    func sendLetter(id: String, success: @escaping () -> ()) {
+        var letter: NSManagedObject?
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Letters")
+        let predicate = NSPredicate(format: "letterId == '\(id)'")
+        fetchRequest.predicate = predicate
+        do {
+            let object = try managedContext.fetch(fetchRequest)
+            if object.count == 1 {
+                letter = object[0] as? NSManagedObject
+            }
+        } catch {
+            print(error)
+        }
+        
+        if let user = UserDefaults.standard.string(forKey: Constants.USER_UUID), let letterAux = letter, let letter = letterAux as? Letters {
+            LetterRequest().sendLetter(userUuid: user, letter: letter) { (response, error) in
+                if let _ = response {
+                    success()
+                    print("sent letter")
+                } else {
+                    print("error Letter")
+                }
+            }
+        }
+    }
+    
     func updateShared(id: String) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
         }
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Letters")
-        let predicate = NSPredicate(format: "id == '\(id)'")
+        let predicate = NSPredicate(format: "letterId == '\(id)'")
         fetchRequest.predicate = predicate
         do {
             let object = try managedContext.fetch(fetchRequest)
@@ -121,7 +152,7 @@ class LetterSingleton{
         }
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Letters")
-        let predicate = NSPredicate(format: "id == '\(id)'")
+        let predicate = NSPredicate(format: "letterId == '\(id)'")
         fetchRequest.predicate = predicate
         do {
             let object = try managedContext.fetch(fetchRequest)
@@ -146,7 +177,7 @@ class LetterSingleton{
         }
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Letters")
-        let predicate = NSPredicate(format: "id == '\(id)'")
+        let predicate = NSPredicate(format: "letterId == '\(id)'")
         fetchRequest.predicate = predicate
         do {
             let object = try managedContext.fetch(fetchRequest)
@@ -171,7 +202,7 @@ class LetterSingleton{
         
         let registry = NSEntityDescription.insertNewObject(forEntityName: "Letters", into: context) as! Letters
         registry.answer = []
-        registry.id = UUID().uuidString
+        registry.letterId = UUID().uuidString
         registry.title = ""
         registry.content = ""
         registry.hasNotification = false
@@ -195,7 +226,7 @@ class LetterSingleton{
         
         let registry = NSEntityDescription.insertNewObject(forEntityName: "Letters", into: context) as! Letters
         registry.answer = []
-        registry.id = self.id
+        registry.letterId = self.letterId
         registry.title = self.title
         registry.content = self.content
         registry.hasNotification = self.hasNotification ?? false
