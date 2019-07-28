@@ -42,6 +42,8 @@ class ReadLetterViewController: UIViewController {
     var viewState: ReadLetterViewControllerState = .read
     lazy var viewTopHeight = self.view.frame.height - self.backgroundTopView.frame.height - 45
     var isShowingLetter = false
+    var hasAnswer = false
+    var receivedLetter: LetterCodable?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +59,10 @@ class ReadLetterViewController: UIViewController {
     }
     
     func setupView(for state: ReadLetterViewControllerState) {
+        self.titleLabel.text = self.receivedLetter?.title
+        self.contentLetterTextView.text = self.receivedLetter?.content
+        
+        
         self.viewState = state
         switch viewState {
         case .read:
@@ -80,6 +86,9 @@ class ReadLetterViewController: UIViewController {
                 self.view.layoutIfNeeded()
             }
             self.titleLabel.text = "Editar Responder"
+            self.answerTextView.text = "Escreva uma resposta para esta carta!"
+            self.answerTextView.textColor = UIColor(rgb: 0xCACACA)
+            self.answerTextView.delegate = self
             self.titleLabel.textColor = .white
             self.cancelButton.isHidden = false
             self.sendLetterView.isHidden = false
@@ -121,8 +130,32 @@ class ReadLetterViewController: UIViewController {
     }
     
     @objc func didTapSend() {
-        //TODO:- Corfirmar mandar resposta
-        print("funfa")
+        if self.answerTextView.text != nil && self.answerTextView.text != "" && hasAnswer{
+            let alert = UIAlertController(title: "Atenção", message: "Deseja enviar esta resposta?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Sim!", style: .default, handler: { action in
+                
+                var answer = AnswerCodable()
+                answer.answerId = UUID().uuidString
+                answer.content = self.answerTextView.text
+                answer.isNewAnswer = true
+                LetterSingleton.shared.sendAnswer(userId: self.receivedLetter?.ownerUuid ?? "", letterId: self.receivedLetter?.letterId ?? "", answer: answer, success: {
+                    self.dismiss(animated: true, completion: nil)
+                })
+                
+                alert.dismiss(animated: true, completion: nil)
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Não", style: .destructive, handler: { action in
+                alert.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Atenção", message: "Escreva uma resposta", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+                alert.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     @IBAction func didTapShowLetter(_ sender: Any) {
@@ -150,5 +183,21 @@ class ReadLetterViewController: UIViewController {
 
 extension ReadLetterViewController: UITextViewDelegate {
     
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView == answerTextView {
+            if answerTextView.textColor == UIColor(rgb: 0xCACACA) {
+                self.answerTextView.text = ""
+                self.answerTextView.textColor = UIColor(rgb: 0x404040)
+                self.hasAnswer = true
+            }
+        }
+    }
     
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if answerTextView.text == nil || answerTextView.text == "" {
+            self.answerTextView.text = "Escreva uma resposta para esta carta!"
+            self.answerTextView.textColor = UIColor(rgb: 0xCACACA)
+            self.hasAnswer = false
+        }
+    }
 }

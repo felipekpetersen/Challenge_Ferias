@@ -20,5 +20,10 @@ class ReceivedLetterCollectionViewCell: UICollectionViewCell {
         let color = UIColor(rgb: 0xEEAE7B)
         self.outsideView.setupShadow(color: color, opacity: 0.45, offset: .zero, radius: 16)
     }
+    
+    func setup(letter: LetterCodable) {
+        self.titleLabel.text = letter.title
+        self.descLabel.text = letter.content
+    }
 
 }

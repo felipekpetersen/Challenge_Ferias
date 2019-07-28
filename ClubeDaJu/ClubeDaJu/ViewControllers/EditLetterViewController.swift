@@ -61,7 +61,7 @@ class EditLetterViewController: UIViewController {
                 self.answersView.isHidden = true
                 self.createdLetter = LetterSingleton.shared.create()
                 self.dateLabel.text = self.createdLetter?.createDate
-                //New: Editar uma carta ja existente
+                //text: Editar uma carta ja existente
             case .text:
                 self.titleTextView.text = self.createdLetter?.title
                 self.contentTextView.text = self.createdLetter?.content
@@ -91,13 +91,12 @@ class EditLetterViewController: UIViewController {
                 }
             }
         }
-    
     }
     
     func setupViewTaps() {
         let endEditingTap = UITapGestureRecognizer(target: self, action: #selector(didTapDismiss))
         let dotsTap = UITapGestureRecognizer(target: self, action: #selector(didTapDots))
-        let shareTap = UITapGestureRecognizer(target: self, action: #selector(didTapShare))
+        let shareTap = UITapGestureRecognizer(target: self, action: #selector(didTapShareButton))
         let checkTap = UITapGestureRecognizer(target: self, action: #selector(didTapCheck))
         let answersTap = UITapGestureRecognizer(target: self, action: #selector(didTapAnswers))
         
@@ -142,8 +141,29 @@ class EditLetterViewController: UIViewController {
         self.present(optionMenu, animated: true, completion: nil)
     }
     
-    @objc func didTapShare() {
-        //TODO:- mostrar modal de share
+    @objc func didTapShareButton() {
+        if !(self.createdLetter?.isShared ?? false) {
+            performSegue(withIdentifier: "showModalFromEdit", sender: self)
+        } else {
+            let alert = UIAlertController(title: "Atenção", message: "Deseja cancelar o envio da carta?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Sim", style: .destructive, handler: { action in
+                //TODO: Deletar do backEnd
+                if let id = self.createdLetter?.letterId {
+                LetterSingleton.shared.deleteLetter(id: id, success: {
+                    LetterSingleton.shared.updateShared(id: id)
+                    self.setupAnswersButton()
+                })
+                }
+                alert.dismiss(animated: true, completion: nil)
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Não", style: .default, handler: { action in
+                self.setupAnswersButton()
+                //                LetterSingleton.shared.updateShared(id: id)
+                self.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     //Verifica se existe um texto, se sim, salva-o. caso contrario, pergunta se pode deletar.
@@ -172,6 +192,15 @@ class EditLetterViewController: UIViewController {
         //TODO:- mover para respostas
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ShareModalViewController {
+            vc.delegate = self
+            vc.letterId = self.createdLetter?.letterId
+        } else if let vc = segue.destination as? AnswersViewController {
+            vc.letter = self.createdLetter
+        }
+    }
+    
 }
 
 //MARK:- TextViewDelegate
@@ -195,4 +224,21 @@ extension EditLetterViewController: UITextViewDelegate {
 
         self.checkEmptyness()
     }
+}
+
+extension EditLetterViewController: ShareModalViewControllerDelegate {
+    func didTapShare(id: String?) {
+        if let id = id {
+            LetterSingleton.shared.sendLetter(id: id, success: {
+                LetterSingleton.shared.updateShared(id: id)
+                self.setupAnswersButton()
+            })
+        }
+    }
+    
+    func didTapDontShare() {
+        self.setupAnswersButton()
+    }
+    
+    
 }

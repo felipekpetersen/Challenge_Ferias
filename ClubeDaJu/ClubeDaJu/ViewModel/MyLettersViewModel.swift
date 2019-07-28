@@ -20,6 +20,10 @@ class MyLettersViewModel {
         (letters, loadError) = LetterSingleton.shared.fetch()
     }
     
+    func fetchSorted() {
+        (letters, loadError) = LetterSingleton.shared.fetchSorted()
+    }
+    
     func getNumberOfRows() -> Int{
         return letters?.count ?? 0
     }

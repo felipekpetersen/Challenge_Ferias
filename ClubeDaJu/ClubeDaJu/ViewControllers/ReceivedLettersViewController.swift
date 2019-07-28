@@ -12,11 +12,14 @@ class ReceivedLettersViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     var heightsForRow = [200, 250, 300, 350, 400]
-    
+    var viewModel = ReceivedLettersViewModel()
     let receivedLetterCell = "ReceivedLetterCollectionViewCell"
+    var selectedLetter: LetterCodable?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupCollectionView()
+        loadData()
     }
     
     func setupCollectionView() {
@@ -35,16 +38,28 @@ class ReceivedLettersViewController: UIViewController {
     func getRandomSize() -> CGFloat{
         return CGFloat(heightsForRow.randomElement() ?? 400)
     }
+    
+    func loadData() {
+        self.viewModel.fetchLetters()
+        self.collectionView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? ReadLetterViewController {
+            vc.receivedLetter = self.selectedLetter
+        }
+    }
 }
 
 extension ReceivedLettersViewController: UICollectionViewDataSource, UICollectionViewDelegate, CHTCollectionViewDelegateWaterfallLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return self.viewModel.getNumberOfRows()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: receivedLetterCell, for: indexPath) as! ReceivedLetterCollectionViewCell
+        cell.setup(letter: self.viewModel.getLetterForRow(index: indexPath.row))
         return cell
     }
     
@@ -55,6 +70,7 @@ extension ReceivedLettersViewController: UICollectionViewDataSource, UICollectio
 //    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedLetter = self.viewModel.getLetterForRow(index: indexPath.row)
         performSegue(withIdentifier: "receivedLetterSegue", sender: self)
     }
     

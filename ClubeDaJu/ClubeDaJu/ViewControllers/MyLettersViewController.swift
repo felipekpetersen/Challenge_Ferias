@@ -17,15 +17,25 @@ class MyLettersViewController: UIViewController {
     let myLetterCell = "MyLetterTableViewCell"
     var selectedIndex: IndexPath?
     var letterSharedId: String?
+    var cellHeights: [IndexPath : CGFloat] = [:]
+    
+    var letters = [LetterCodable]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupTableView()
+        self.letters = InternLetter.getLetters(userId: UserDefaults.standard.string(forKey: Constants.USER_UUID) ?? "")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.loadData()
+    }
+    
+    func loadDataSorted() {
+        self.viewModel.fetchSorted()
+        self.tableView.reloadData()
+        self.checkEmpty()
     }
     
     func loadData() {
@@ -84,7 +94,12 @@ extension MyLettersViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 146 
+        return cellHeights[indexPath] ?? 146
+//        return 146
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cellHeights[indexPath] = cell.frame.size.height
     }
 }
 
@@ -102,7 +117,10 @@ extension MyLettersViewController: MyLetterTableViewCellDelegate {
             let alert = UIAlertController(title: "Atenção", message: "Deseja cancelar o envio da carta?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Sim", style: .destructive, handler: { action in
                 //TODO: Deletar do backEnd
-                LetterSingleton.shared.updateShared(id: id)
+                LetterSingleton.shared.deleteLetter(id: id, success: {
+                    LetterSingleton.shared.updateShared(id: id)
+                    self.loadData()
+                })
                 self.loadData()
                 alert.dismiss(animated: true, completion: nil)
             }))

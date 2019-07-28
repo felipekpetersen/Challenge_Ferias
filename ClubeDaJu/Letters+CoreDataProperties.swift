@@ -2,7 +2,7 @@
 //  Letters+CoreDataProperties.swift
 //  ClubeDaJu
 //
-//  Created by Felipe Petersen on 25/07/19.
+//  Created by Felipe Petersen on 27/07/19.
 //  Copyright © 2019 Felipe Petersen. All rights reserved.
 //
 //
@@ -25,6 +25,7 @@ extension Letters {
     @NSManaged public var isFavorite: Bool
     @NSManaged public var isShared: Bool
     @NSManaged public var title: String?
+    @NSManaged public var ownerUuid: String?
     @NSManaged public var answer: NSSet?
 
 }

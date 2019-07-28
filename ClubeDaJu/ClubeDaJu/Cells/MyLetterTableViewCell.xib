@@ -57,15 +57,14 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Amor não Correspondido" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VzY-0r-pfn">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Sem título" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VzY-0r-pfn">
                         <rect key="frame" x="20" y="16" width="236" height="17"/>
                         <fontDescription key="fontDescription" name="Kievit-Medium" family="Kievit" pointSize="18"/>
                         <color key="textColor" red="0.25098039215686274" green="0.25098039215686274" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnT-3B-L7q">
-                        <rect key="frame" x="20" y="41" width="236" height="88.5"/>
-                        <string key="text">Essa carta conta a história de como tudo começou em nossas vidas, Essa carta conta a história de como tudo começou.Essa carta conta a história de como tudo começou em…</string>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" text="Sem Conteúdo" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnT-3B-L7q">
+                        <rect key="frame" x="20" y="41" width="236" height="18"/>
                         <fontDescription key="fontDescription" name="Kievit-Book" family="Kievit" pointSize="15"/>
                         <color key="textColor" red="0.62745098039215685" green="0.62745098039215685" blue="0.62745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
@@ -128,7 +127,7 @@
                     <constraint firstAttribute="trailing" secondItem="My4-Of-HvZ" secondAttribute="trailing" id="qMA-vP-AOH"/>
                     <constraint firstItem="IRM-i8-tzQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="-12" id="tWU-S4-WHE"/>
                     <constraint firstItem="VzY-0r-pfn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="v2K-2K-aBB"/>
-                    <constraint firstAttribute="bottom" secondItem="qnT-3B-L7q" secondAttribute="bottom" constant="16" id="vLc-Fd-8u0"/>
+                    <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="qnT-3B-L7q" secondAttribute="bottom" priority="999" constant="86.5" id="vLc-Fd-8u0"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

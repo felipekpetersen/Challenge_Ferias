@@ -242,6 +242,7 @@
                         <outlet property="shareView" destination="QcY-jO-BTk" id="wQN-od-DdY"/>
                         <outlet property="titleTextView" destination="tL2-S1-1v5" id="rtH-of-nz8"/>
                         <segue destination="yuY-qz-8Cd" kind="show" identifier="answersSegue" id="ETw-Jl-sDu"/>
+                        <segue destination="bPy-8A-bpL" kind="presentation" identifier="showModalFromEdit" modalPresentationStyle="overFullScreen" id="xiy-PR-ReY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="czy-KO-6RE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -611,10 +612,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="434"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ga-mT-5od">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="439.66666666666669"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="198"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="e72-E5-YKH">
-                                                        <rect key="frame" x="21" y="84.000000000000028" width="333" height="347.66666666666674"/>
+                                                        <rect key="frame" x="21" y="84" width="333" height="106"/>
                                                         <subviews>
                                                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hoje" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lkF-om-fUB">
                                                                 <rect key="frame" x="0.0" y="0.0" width="26.666666666666668" height="0.0"/>
@@ -622,17 +623,16 @@
                                                                 <color key="textColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="251" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxB-uI-7X6">
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="251" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" editable="NO" text="Sem Título" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rxB-uI-7X6">
                                                                 <rect key="frame" x="0.0" y="0.0" width="333" height="60"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="textColor" red="0.25098039220000001" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="fontDescription" name="Charter-Bold" family="Charter" pointSize="36"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                             </textView>
-                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZ1-5x-6ob">
-                                                                <rect key="frame" x="0.0" y="68" width="333" height="279.66666666666669"/>
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" editable="NO" text="Sem Conteúdo" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZ1-5x-6ob">
+                                                                <rect key="frame" x="0.0" y="68" width="333" height="38"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <string key="text">rwrtewewirbwe riewuirwri ewiurher iue ieuwr ewiurh weiur ewiurh weiurh iewuhrweiur hwiueh rwrhew iuhr rwrtewewirbwe riewuirwri ewiurher iue ieuwr ewiurh weiur ewiurh weiurh iewuhrweiur hwiueh rwrhew iuhr rwrtewewirbwe riewuirwri ewiurher iue ieuwr ewiurh weiur ewiurh weiurh iewuhrweiur hwiueh rwrhew iuhr rwrtewewirbwe riewuirwri ewiurher iue ieuwr ewiurh weiur ewiurh weiurh iewuhrweiur hwiueh rwrhew iuhr</string>
                                                                 <color key="textColor" red="0.25098039220000001" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="18"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -683,7 +683,6 @@
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cHt-Cp-1ZM">
                                                         <rect key="frame" x="21" y="45" width="333" height="239"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <string key="text">rwrtewewirbwe riewuirwri ewiurher iue ieuwr ewiurh weiur ewiurh weiurh iewuhrweiur hwiueh rwrhew iuhr rwrtewewirbwe riewuirwri ewiurher iue ieuwr ewiurh weiur ewiurh weiurh iewuhrweiur hwiueh rwrhew iuhr rwrtewewirbwe riewuirwri ewiurher iue ieuwr ewiurh weiur ewiurh weiurh iewuhrweiur hwiueh rwrhew iuhr rwrtewewirbwe riewuirwri ewiurher iue ieuwr ewiurh weiur ewiurh weiurh iewuhrweiur hwiueh rwrhew iuhr rwrtewewirbwe riewuirwri ewiurher iue ieuwr ewiurh weiur ewiurh weiurh iewuhrweiur hwiueh rwrhew iuhr</string>
                                                         <color key="textColor" red="0.25098039220000001" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="18"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1027,6 +1026,7 @@
         <image name="wall_myhome" width="53" height="812"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="xiy-PR-ReY"/>
         <segue reference="NcR-kS-XfC"/>
     </inferredMetricsTieBreakers>
 </document>
