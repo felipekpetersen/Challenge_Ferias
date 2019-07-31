@@ -33,7 +33,7 @@ class InternLetter: NSObject {
     static func getLetters(userId: String) -> [LetterCodable] {
         var letters: [LetterCodable] = []
         do {
-            let path = "http://localhost:3000/api/getLetters/\(userId)/"
+            let path = "https://br-clube-ju.herokuapp.com/api/getLetters/\(userId)/"
             
             let url = URL(string: path)
             
@@ -52,7 +52,7 @@ class InternLetter: NSObject {
     static func getRandomLetters() -> [LetterCodable] {
         var letters: [LetterCodable] = []
         do {
-            let path = "http://localhost:3000/api/getAllLetters/"
+            let path = "https://br-clube-ju.herokuapp.com/api/getAllLetters/"
             
             let url = URL(string: path)
             

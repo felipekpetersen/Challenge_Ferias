@@ -11,10 +11,11 @@ import UIKit
 class ReceivedLettersViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var heightsForRow = [200, 250, 300, 350, 400]
+    var heightsForRow = [150, 200, 250, 300]
     var viewModel = ReceivedLettersViewModel()
     let receivedLetterCell = "ReceivedLetterCollectionViewCell"
     var selectedLetter: LetterCodable?
+    var cellHeights: [IndexPath : CGFloat] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,7 +79,8 @@ extension ReceivedLettersViewController: UICollectionViewDataSource, UICollectio
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width/2 , height: self.getRandomSize())
+        return CGSize(width: collectionView.frame.size.width/2 , height: getRandomSize())
+//        return CGSize(width: collectionView.frame.size.width/2 , height: self.collectionView.cellForItem(at: indexPath)?.contentView.frame.height ?? 150)
     }
     
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

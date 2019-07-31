@@ -148,10 +148,14 @@ class EditLetterViewController: UIViewController {
             let alert = UIAlertController(title: "Atenção", message: "Deseja cancelar o envio da carta?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Sim", style: .destructive, handler: { action in
                 //TODO: Deletar do backEnd
+                self.showSpinner(onView: self.view)
                 if let id = self.createdLetter?.letterId {
                 LetterSingleton.shared.deleteLetter(id: id, success: {
+                    self.removeSpinner()
                     LetterSingleton.shared.updateShared(id: id)
                     self.setupAnswersButton()
+                }, fail: {
+                    self.removeSpinner()
                 })
                 }
                 alert.dismiss(animated: true, completion: nil)

@@ -6,11 +6,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ClubeDaJu/RequestModel/UserRequest.swift"
-            timestampString = "586029698.662325"
+            timestampString = "586231981.416919"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "45"
@@ -22,11 +22,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ClubeDaJu/RequestModel/UserRequest.swift"
-            timestampString = "586029698.66293"
+            timestampString = "586231981.417017"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "50"
@@ -41,28 +41,12 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ClubeDaJu/ViewControllers/ContainerViewController.swift"
-            timestampString = "586029698.663818"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "register()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "LetterSingleton.swift"
-            timestampString = "586029698.664732"
+            timestampString = "586231981.417076"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "413"
-            endingLineNumber = "413"
+            startingLineNumber = "417"
+            endingLineNumber = "417"
             landmarkName = "saveLettersFromRemoteDataSource(letters:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LetterSingleton.swift"
-            timestampString = "586029698.665372"
+            timestampString = "586231981.4171309"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "422"
-            endingLineNumber = "422"
+            startingLineNumber = "426"
+            endingLineNumber = "426"
             landmarkName = "saveLettersFromRemoteDataSource(letters:)"
             landmarkType = "7">
             <Locations>
@@ -90,11 +74,11 @@
                   moduleName = "ClubeDaJu"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/felipepetersen/Desktop/Academy/Projetos/Git/Challenge_Ferias/ClubeDaJu/LetterSingleton.swift"
-                  timestampString = "586029699.320981"
+                  timestampString = "586231983.434212"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "422"
-                  endingLineNumber = "422"
+                  startingLineNumber = "426"
+                  endingLineNumber = "426"
                   offsetFromSymbolStart = "5192">
                </Location>
                <Location
@@ -105,14 +89,62 @@
                   moduleName = "ClubeDaJu"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/felipepetersen/Desktop/Academy/Projetos/Git/Challenge_Ferias/ClubeDaJu/LetterSingleton.swift"
-                  timestampString = "586029699.323046"
+                  timestampString = "586231983.435693"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "422"
-                  endingLineNumber = "422"
+                  startingLineNumber = "426"
+                  endingLineNumber = "426"
                   offsetFromSymbolStart = "4">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LetterSingleton.swift"
+            timestampString = "586231981.4172879"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "sendLetter(id:success:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LetterSingleton.swift"
+            timestampString = "586231981.417374"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "sendLetter(id:success:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ClubeDaJu/ViewControllers/MyLettersViewController.swift"
+            timestampString = "586231981.4174761"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "createNotification()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -122,44 +154,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LetterSingleton.swift"
-            timestampString = "586029698.666589"
+            timestampString = "586231981.417594"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
-            landmarkName = "sendAnswer(userId:letterId:answer:success:)"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "sendAnswer(userId:letterId:answer:success:fail:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ClubeDaJu.LetterSingleton.sendAnswer(userId: Swift.String, letterId: Swift.String, answer: ClubeDaJu.AnswerCodable, success: () -&gt; (), fail: () -&gt; ()) -&gt; ()"
+                  moduleName = "ClubeDaJu"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/felipepetersen/Desktop/Academy/Projetos/Git/Challenge_Ferias/ClubeDaJu/LetterSingleton.swift"
+                  timestampString = "586231983.445323"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "139"
+                  endingLineNumber = "139"
+                  offsetFromSymbolStart = "106">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in ClubeDaJu.LetterSingleton.sendAnswer(userId: Swift.String, letterId: Swift.String, answer: ClubeDaJu.AnswerCodable, success: () -&gt; (), fail: () -&gt; ()) -&gt; ()"
+                  moduleName = "ClubeDaJu"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/felipepetersen/Desktop/Academy/Projetos/Git/Challenge_Ferias/ClubeDaJu/LetterSingleton.swift"
+                  timestampString = "586231983.446892"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "140"
+                  endingLineNumber = "140"
+                  offsetFromSymbolStart = "211">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ClubeDaJu/RequestModel/LetterRequest.swift"
-            timestampString = "586029698.666844"
+            filePath = "ClubeDaJu/ViewControllers/MyLettersViewController.swift"
+            timestampString = "586231981.417715"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "sendLetter(userUuid:letter:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ClubeDaJu/ViewControllers/EditLetterViewController.swift"
-            timestampString = "586029698.667047"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "setupView()"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class MyLettersViewController: UIViewController {
 
@@ -20,28 +21,39 @@ class MyLettersViewController: UIViewController {
     var cellHeights: [IndexPath : CGFloat] = [:]
     
     var letters = [LetterCodable]()
-    
+    var notification = NotificationModel(title: "Que tal escrever?", message:"Por que não vem escrever um pouco?", time: 10, badge: true, sound: true)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupTableView()
         self.letters = InternLetter.getLetters(userId: UserDefaults.standard.string(forKey: Constants.USER_UUID) ?? "")
+        createNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.loadData()
+//        self.loadData()
+        self.loadDataSorted()
     }
-    
+
     func loadDataSorted() {
         self.viewModel.fetchSorted()
         self.tableView.reloadData()
         self.checkEmpty()
+        checkFirstLetter()
     }
     
     func loadData() {
         self.viewModel.fetch()
         self.tableView.reloadData()
         self.checkEmpty()
+        checkFirstLetter()
+    }
+    
+    func checkFirstLetter() {
+        if self.viewModel.letters?.count == 1, UserDefaults.standard.string(forKey: Constants.IS_FIRST_LETTER) == nil  {
+            performSegue(withIdentifier: "showCellSegue", sender: self)
+        }
     }
     
     func setupTableView() {
@@ -68,6 +80,50 @@ class MyLettersViewController: UIViewController {
             vc.letterId = self.letterSharedId
         }
     }
+    
+    
+    func createNotification() {
+        notification = NotificationModel(title: "Como foi seu dia?", message:"Venha escrever sobre você!", time: 86400, badge: true, sound: true)
+        let badgeNumber = UIApplication.shared.applicationIconBadgeNumber
+        let notificationCenter = UNUserNotificationCenter.current()
+        notificationCenter.getNotificationSettings { (settings) in
+            if settings.authorizationStatus == .authorized {
+                let content = UNMutableNotificationContent()
+                content.title = NSString.localizedUserNotificationString(forKey: self.notification.title!, arguments: nil)
+                content.body = NSString.localizedUserNotificationString(forKey: self.notification.message!, arguments: nil)
+                content.sound = UNNotificationSound.default
+                
+                if self.notification.badge {
+                    content.badge = badgeNumber + 1 as NSNumber
+                } else {
+                    content.badge = nil
+                }
+                
+                if self.notification.sound {
+                    content.sound = .default
+                } else {
+                    content.sound = nil
+                }
+                
+                content.categoryIdentifier = NotificationType.Category.tutorial
+                
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: self.notification.time, repeats: false)
+                
+                let request = UNNotificationRequest(identifier: "5seconds", content: content, trigger: trigger)
+                
+                let center = UNUserNotificationCenter.current()
+                center.removeAllPendingNotificationRequests()
+                center.add(request) { (error : Error?) in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    }
+                }
+                
+            } else {
+                print("Impossível mandar notificação - permissão negada")
+            }
+        }
+    }
 }
 
 extension MyLettersViewController: UITableViewDataSource, UITableViewDelegate {
@@ -77,6 +133,7 @@ extension MyLettersViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return self.viewModel.getNumberOfRows()
     }
     
@@ -106,7 +163,8 @@ extension MyLettersViewController: UITableViewDataSource, UITableViewDelegate {
 extension MyLettersViewController: MyLetterTableViewCellDelegate {
     func didTapFavorite(isFavorite: Bool, id: String) {
         LetterSingleton.shared.updateFavorite(id: id)
-        self.loadData()
+//        self.loadData()
+        self.loadDataSorted()
     }
     
     func didTapShare(isShare: Bool, id: String) {
@@ -116,17 +174,24 @@ extension MyLettersViewController: MyLetterTableViewCellDelegate {
         } else {
             let alert = UIAlertController(title: "Atenção", message: "Deseja cancelar o envio da carta?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Sim", style: .destructive, handler: { action in
-                //TODO: Deletar do backEnd
+                // Deletar do backEnd
+                self.showSpinner(onView: self.view)
                 LetterSingleton.shared.deleteLetter(id: id, success: {
                     LetterSingleton.shared.updateShared(id: id)
-                    self.loadData()
+                    self.removeSpinner()
+//                    self.loadData()
+                    self.loadDataSorted()
+                }, fail: {
+                    self.removeSpinner()
                 })
-                self.loadData()
+//                self.loadData()
+                self.loadDataSorted()
                 alert.dismiss(animated: true, completion: nil)
             }))
             
             alert.addAction(UIAlertAction(title: "Não", style: .default, handler: { action in
-                self.loadData()
+//                self.loadData()
+                self.loadDataSorted()
 //                LetterSingleton.shared.updateShared(id: id)
                 self.dismiss(animated: true, completion: nil)
             }))
@@ -140,13 +205,15 @@ extension MyLettersViewController: ShareModalViewControllerDelegate {
         if let id = id {
             LetterSingleton.shared.sendLetter(id: id, success: {
                 LetterSingleton.shared.updateShared(id: id)
-                self.loadData()
+//                self.loadData()
+                self.loadDataSorted()
             })
         }
     }
     
     func didTapDontShare() {
-        self.loadData()
+//        self.loadData()
+        self.loadDataSorted()
     }
     
  

@@ -138,8 +138,12 @@ class ReadLetterViewController: UIViewController {
                 answer.answerId = UUID().uuidString
                 answer.content = self.answerTextView.text
                 answer.isNewAnswer = true
+                self.showSpinner(onView: self.view)
                 LetterSingleton.shared.sendAnswer(userId: self.receivedLetter?.ownerUuid ?? "", letterId: self.receivedLetter?.letterId ?? "", answer: answer, success: {
+                    self.removeSpinner()
                     self.dismiss(animated: true, completion: nil)
+                }, fail: {
+                    self.removeSpinner()
                 })
                 
                 alert.dismiss(animated: true, completion: nil)

@@ -16,6 +16,9 @@ import UIKit
 //     Não se esqueça de dar override no setScrollViewContentInset e dar removeObservers() no viewDidDisappear
 //     */
 //
+
+var vSpinner:UIView?
+
 extension UIViewController {
     func setupAutoScrollWhenKeyboardShowsUp() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapView(gesture:)))
@@ -57,5 +60,28 @@ extension UIViewController {
     //    // OVERRIDE IT!
     @objc func setScrollViewContentInset(_ inset: UIEdgeInsets) {
         
+    }
+    
+    //MARK:- Loader
+    func showSpinner(onView : UIView) {
+        let spinnerView = UIView.init(frame: onView.bounds)
+        spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.3)
+        let ai = UIActivityIndicatorView.init(style: .whiteLarge)
+        ai.startAnimating()
+        ai.center = spinnerView.center
+        
+        DispatchQueue.main.async {
+            spinnerView.addSubview(ai)
+            onView.addSubview(spinnerView)
+        }
+        
+        vSpinner = spinnerView
+    }
+    
+    func removeSpinner() {
+        DispatchQueue.main.async {
+            vSpinner?.removeFromSuperview()
+            vSpinner = nil
+        }
     }
 }

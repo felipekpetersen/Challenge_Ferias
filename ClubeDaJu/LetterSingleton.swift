@@ -121,29 +121,30 @@ class LetterSingleton{
         }
     }
    
-    func deleteLetter(id: String, success: @escaping () -> ()) {
+    func deleteLetter(id: String, success: @escaping () -> (), fail: @escaping () -> ()) {
         if let user = UserDefaults.standard.string(forKey: Constants.USER_UUID) {
             LetterRequest().deleteLetter(userUuid: user, letterId: id) { (response, error) in
                 if let _ = response {
                     success()
                     print("delete letter")
                 } else {
+                    fail()
                     print("error delete Letter")
                 }
             }
         }
     }
     
-    func sendAnswer(userId: String, letterId: String, answer: AnswerCodable, success: @escaping () -> ()) {
+    func sendAnswer(userId: String, letterId: String, answer: AnswerCodable, success: @escaping () -> (), fail: @escaping () -> ()) {
         AnswerRequest().sendAnswer(userUuid: userId, letterId: letterId, answer: answer) { (response, error) in
             if let _ = response {
                 success()
                 print("answer Sent")
             } else {
+                fail()
                 print("answer Error")
             }
         }
-        
     }
     
     func updateShared(id: String) {
@@ -323,6 +324,8 @@ class LetterSingleton{
         do {
             fetchedLetters = try context!.fetch(Letters.fetchRequest())
             fetchedLetters?.sort{ $0.isFavorite && !$1.isFavorite }
+            fetchedLetters?.sort{ $0.hasNotification && !$1.hasNotification }
+
         } catch {
             erro = error
             print(error.localizedDescription)

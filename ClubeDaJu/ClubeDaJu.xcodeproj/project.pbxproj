@@ -35,6 +35,8 @@
 		32648A4E22D6AE0C00321507 /* Kievit_Medium_Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32648A4822D6AE0C00321507 /* Kievit_Medium_Italic.ttf */; };
 		32648A4F22D6AE0C00321507 /* Kievit_Regular_SC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32648A4922D6AE0C00321507 /* Kievit_Regular_SC.ttf */; };
 		32648A5022D6AE0C00321507 /* Kievit_Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 32648A4A22D6AE0C00321507 /* Kievit_Bold.ttf */; };
+		3265807222F0C6D700362802 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3265807122F0C6D700362802 /* NotificationModel.swift */; };
+		3265807522F0F9EB00362802 /* ShareTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3265807422F0F9EB00362802 /* ShareTutorialViewController.swift */; };
 		327F14F422EA129F00206C4E /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327F14F322EA129F00206C4E /* UserRequest.swift */; };
 		327F14F622EA132900206C4E /* RequestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327F14F522EA132900206C4E /* RequestConstants.swift */; };
 		327F14F822EA1BCF00206C4E /* LetterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327F14F722EA1BCF00206C4E /* LetterRequest.swift */; };
@@ -85,6 +87,9 @@
 		32648A4822D6AE0C00321507 /* Kievit_Medium_Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kievit_Medium_Italic.ttf; sourceTree = "<group>"; };
 		32648A4922D6AE0C00321507 /* Kievit_Regular_SC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kievit_Regular_SC.ttf; sourceTree = "<group>"; };
 		32648A4A22D6AE0C00321507 /* Kievit_Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kievit_Bold.ttf; sourceTree = "<group>"; };
+		3265807122F0C6D700362802 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
+		3265807322F0CBBE00362802 /* ClubeDaJu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ClubeDaJu.entitlements; sourceTree = "<group>"; };
+		3265807422F0F9EB00362802 /* ShareTutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareTutorialViewController.swift; sourceTree = "<group>"; };
 		327F14F322EA129F00206C4E /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
 		327F14F522EA132900206C4E /* RequestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestConstants.swift; sourceTree = "<group>"; };
 		327F14F722EA1BCF00206C4E /* LetterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterRequest.swift; sourceTree = "<group>"; };
@@ -135,6 +140,7 @@
 				32E1D79B22DD5D87002C81A1 /* AnswersViewController.swift */,
 				3223B60022DF624B00FC1286 /* ReadLetterViewController.swift */,
 				32B1FD5A22E3711400298A0D /* ShareModalViewController.swift */,
+				3265807422F0F9EB00362802 /* ShareTutorialViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -191,10 +197,11 @@
 		32648A2722D6A77E00321507 /* ClubeDaJu */ = {
 			isa = PBXGroup;
 			children = (
-				327F14F222EA129100206C4E /* RequestModel */,
+				3265807322F0CBBE00362802 /* ClubeDaJu.entitlements */,
 				32648A2822D6A77E00321507 /* AppDelegate.swift */,
 				32648A3422D6A78000321507 /* LaunchScreen.storyboard */,
 				32648A2C22D6A77E00321507 /* Main.storyboard */,
+				327F14F222EA129100206C4E /* RequestModel */,
 				32E1D79D22DD60D2002C81A1 /* Model */,
 				3223B62022E0EC4000FC1286 /* ViewModel */,
 				3261EB7D22D7AC640081D1CD /* ViewControllers */,
@@ -244,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				32E1D79E22DD60FD002C81A1 /* LetterModel.swift */,
+				3265807122F0C6D700362802 /* NotificationModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -280,6 +288,11 @@
 				TargetAttributes = {
 					32648A2422D6A77E00321507 = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -341,6 +354,7 @@
 				32B7DADE22DA242D00702E17 /* WaterfallLayout.swift in Sources */,
 				3261EB8922D8E1D50081D1CD /* ClubDaJuView.swift in Sources */,
 				3223B62222E0EC5800FC1286 /* MyLettersViewModel.swift in Sources */,
+				3265807522F0F9EB00362802 /* ShareTutorialViewController.swift in Sources */,
 				3261EB8322D7ECA50081D1CD /* ReceivedLetterCollectionViewCell.swift in Sources */,
 				32648A2922D6A77E00321507 /* AppDelegate.swift in Sources */,
 				32E1D79922DD5C5D002C81A1 /* AnswerTableViewCell.swift in Sources */,
@@ -360,6 +374,7 @@
 				3223B61D22E0EA4000FC1286 /* Letters+CoreDataProperties.swift in Sources */,
 				32B7DAE022DA2B0000702E17 /* ClubeDaJuLabel.swift in Sources */,
 				32B7DAE622DCF7AC00702E17 /* EditLetterViewController.swift in Sources */,
+				3265807222F0C6D700362802 /* NotificationModel.swift in Sources */,
 				3261EB8B22D8E3850081D1CD /* ClubeDaJuUIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -506,6 +521,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ClubeDaJu/ClubeDaJu.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DHAN829484;
 				INFOPLIST_FILE = ClubeDaJu/Info.plist;
@@ -524,6 +540,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ClubeDaJu/ClubeDaJu.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DHAN829484;
 				INFOPLIST_FILE = ClubeDaJu/Info.plist;
