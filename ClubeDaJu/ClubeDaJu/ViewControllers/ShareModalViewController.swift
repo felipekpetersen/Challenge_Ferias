@@ -23,6 +23,7 @@ class ShareModalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.viewTaps()
+        sendView.setupShadow(color: UIColor(rgb: 0xFF847B), opacity: 0.54, offset: .zero, radius: 7)
     }
     
     func viewTaps() {

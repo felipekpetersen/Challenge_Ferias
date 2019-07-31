@@ -25,15 +25,18 @@ class MyLettersViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupTableView()
-        self.letters = InternLetter.getLetters(userId: UserDefaults.standard.string(forKey: Constants.USER_UUID) ?? "")
-        createNotification()
+//        self.setupTableView()
+//        self.letters = InternLetter.getLetters(userId: UserDefaults.standard.string(forKey: Constants.USER_UUID) ?? "")
+//        createNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 //        self.loadData()
         self.loadDataSorted()
+        self.setupTableView()
+        self.letters = InternLetter.getLetters(userId: UserDefaults.standard.string(forKey: Constants.USER_UUID) ?? "")
+        createNotification()
     }
 
     func loadDataSorted() {
