@@ -334,6 +334,7 @@ class LetterSingleton{
         return (fetchedLetters, erro)
     }
     
+    //quando sai das respostas, settar todas para lida
     func setAllAnswersForRead(letter: Letters) {
         context =  (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         if let answers = letter.answer {
@@ -355,6 +356,10 @@ class LetterSingleton{
         } catch let error as NSError {
             print(error.code)
         }
+    }
+    
+    func filterAnswers() {
+        
     }
     
 //    func fetchAnswers() -> ([Answers]?, Error?){

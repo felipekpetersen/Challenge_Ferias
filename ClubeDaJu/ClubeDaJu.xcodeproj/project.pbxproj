@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		321902E422F3584500E57F3A /* EmailExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321902E322F3584500E57F3A /* EmailExtension.swift */; };
 		3223B60122DF624B00FC1286 /* ReadLetterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3223B60022DF624B00FC1286 /* ReadLetterViewController.swift */; };
 		3223B61722E0E54000FC1286 /* LetterSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3223B61622E0E54000FC1286 /* LetterSingleton.swift */; };
 		3223B61C22E0EA4000FC1286 /* Letters+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3223B61822E0EA4000FC1286 /* Letters+CoreDataClass.swift */; };
@@ -57,6 +58,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		321902E322F3584500E57F3A /* EmailExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailExtension.swift; sourceTree = "<group>"; };
 		3223B60022DF624B00FC1286 /* ReadLetterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadLetterViewController.swift; sourceTree = "<group>"; };
 		3223B61622E0E54000FC1286 /* LetterSingleton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterSingleton.swift; sourceTree = "<group>"; };
 		3223B61822E0EA4000FC1286 /* Letters+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Letters+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				32B7DADD22DA242D00702E17 /* WaterfallLayout.swift */,
 				32B7DADF22DA2B0000702E17 /* ClubeDaJuLabel.swift */,
 				32B1FD5C22E62B7400298A0D /* ClubeDaJuScrollView.swift */,
+				321902E322F3584500E57F3A /* EmailExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				32B7DAE422DB7DE700702E17 /* ContainerViewController.swift in Sources */,
 				3223B60122DF624B00FC1286 /* ReadLetterViewController.swift in Sources */,
 				327F14FC22EBC7AA00206C4E /* AnswerRequest.swift in Sources */,
+				321902E422F3584500E57F3A /* EmailExtension.swift in Sources */,
 				32E1D79F22DD60FD002C81A1 /* LetterModel.swift in Sources */,
 				32B1FD5D22E62B7400298A0D /* ClubeDaJuScrollView.swift in Sources */,
 				32B7DADE22DA242D00702E17 /* WaterfallLayout.swift in Sources */,

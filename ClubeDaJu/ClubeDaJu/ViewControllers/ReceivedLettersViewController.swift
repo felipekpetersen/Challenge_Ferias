@@ -16,6 +16,10 @@ class ReceivedLettersViewController: UIViewController {
     let receivedLetterCell = "ReceivedLetterCollectionViewCell"
     var selectedLetter: LetterCodable?
     var cellHeights: [IndexPath : CGFloat] = [:]
+    var maxyDireita: CGFloat = 0
+    var maxyEsquerda: CGFloat = 0
+
+    var isPar = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +64,39 @@ extension ReceivedLettersViewController: UICollectionViewDataSource, UICollectio
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: receivedLetterCell, for: indexPath) as! ReceivedLetterCollectionViewCell
+        
+        let random = getRandomSize()
+        var cellFrame: CGRect?
+        if maxyDireita <= maxyEsquerda {
+            cellFrame = CGRect(x:0, y: maxyDireita, width: self.collectionView.frame.size.width/2, height: random)
+//            cell.frame = CGRect(x:0, y: maxyDireita, width: self.collectionView.frame.size.width/2, height: random)
+            maxyDireita = cell.frame.maxY
+            
+        } else {
+            cellFrame = CGRect(x: self.collectionView.frame.size.width/2, y: maxyEsquerda, width: self.collectionView.frame.size.width/2, height: random)
+//            cell.frame = CGRect(x: self.collectionView.frame.size.width/2, y: maxyEsquerda, width: self.collectionView.frame.size.width/2, height: random)
+            maxyEsquerda = cell.frame.maxY
+        }
+        
+        print(cellFrame)
         cell.setup(letter: self.viewModel.getLetterForRow(index: indexPath.row))
+//        let random = getRandomSize()
+//        if maxyDireita <= maxyEsquerda {
+//
+//            cell.frame = CGRect(x:0, y: maxyDireita, width: self.collectionView.frame.size.width/2, height: random)
+//            maxyDireita = cell.frame.maxY
+//        } else {
+//            cell.frame = CGRect(x: self.collectionView.frame.size.width/2, y: maxyEsquerda, width: self.collectionView.frame.size.width/2, height: random)
+//            maxyEsquerda = cell.frame.maxY
+//        }
+//        if isPar {
+//            cell.frame = CGRect(x:cell.frame.origin.x, y: maxyDireita, width: collectionView.frame.size.width/2, height: random)
+//            maxyDireita = cell.frame.maxY
+//        } else {
+//            cell.frame = CGRect(x:cell.frame.origin.x, y: maxyEsquerda, width: collectionView.frame.size.width/2, height: random)
+//            maxyEsquerda = cell.frame.maxY
+//        }
+//        isPar = !isPar
         return cell
     }
     
@@ -75,11 +111,15 @@ extension ReceivedLettersViewController: UICollectionViewDataSource, UICollectio
         performSegue(withIdentifier: "receivedLetterSegue", sender: self)
     }
     
-    
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width/2 , height: getRandomSize())
+        let randomSize = getRandomSize()
+        if randomSize - CGFloat((self.viewModel.getLetterForRow(index: indexPath.row).content?.count ?? 0)/3) > 50 {
+            return CGSize(width: collectionView.frame.size.width/2 , height: CGFloat((self.viewModel.getLetterForRow(index: indexPath.row).content?.count ?? 0)/2) + 100)
+
+        }
+        return CGSize(width: collectionView.frame.size.width/2 , height: randomSize)
 //        return CGSize(width: collectionView.frame.size.width/2 , height: self.collectionView.cellForItem(at: indexPath)?.contentView.frame.height ?? 150)
     }
     

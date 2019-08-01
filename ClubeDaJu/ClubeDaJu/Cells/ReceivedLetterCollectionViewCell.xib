@@ -27,7 +27,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="251" height="277"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yB6-uB-bpt" customClass="RoundedView" customModule="ClubeDaJu" customModuleProvider="target">
+                    <view clipsSubviews="YES" alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yB6-uB-bpt" customClass="RoundedView" customModule="ClubeDaJu" customModuleProvider="target">
                         <rect key="frame" x="8" y="8" width="235" height="261"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHs-A0-55Z">
@@ -37,7 +37,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nmC-jF-hyL">
-                                <rect key="frame" x="8" y="34" width="219" height="28"/>
+                                <rect key="frame" x="8" y="41" width="219" height="28"/>
                                 <string key="text">oi
 </string>
                                 <fontDescription key="fontDescription" name="Kievit-Book" family="Kievit" pointSize="15"/>
@@ -55,10 +55,10 @@
                             <constraint firstItem="nmC-jF-hyL" firstAttribute="leading" secondItem="yB6-uB-bpt" secondAttribute="leading" constant="8" id="0Es-PD-1Xv"/>
                             <constraint firstAttribute="trailing" secondItem="nmC-jF-hyL" secondAttribute="trailing" constant="8" id="3vB-fL-GwK"/>
                             <constraint firstAttribute="trailing" secondItem="aHs-A0-55Z" secondAttribute="trailing" constant="8" id="8QL-UC-fdT"/>
-                            <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="nmC-jF-hyL" secondAttribute="bottom" priority="999" constant="205" id="BlJ-4U-SQM"/>
-                            <constraint firstItem="nmC-jF-hyL" firstAttribute="top" secondItem="aHs-A0-55Z" secondAttribute="bottom" constant="1" id="KdL-zp-pAZ"/>
+                            <constraint firstItem="nmC-jF-hyL" firstAttribute="top" secondItem="aHs-A0-55Z" secondAttribute="bottom" constant="8" id="KdL-zp-pAZ"/>
                             <constraint firstItem="aHs-A0-55Z" firstAttribute="leading" secondItem="yB6-uB-bpt" secondAttribute="leading" constant="8" id="PLS-jC-NSM"/>
                             <constraint firstItem="aHs-A0-55Z" firstAttribute="top" secondItem="yB6-uB-bpt" secondAttribute="top" constant="16" id="jz0-SN-2PH"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="nmC-jF-hyL" secondAttribute="bottom" priority="999" constant="16" id="qHc-Ql-Sa6"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -72,11 +72,12 @@
                 <constraint firstItem="yB6-uB-bpt" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="M7J-b4-bqa"/>
                 <constraint firstAttribute="trailing" secondItem="yB6-uB-bpt" secondAttribute="trailing" constant="8" id="QqL-RK-VFf"/>
                 <constraint firstItem="yB6-uB-bpt" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="X81-x4-hTi"/>
-                <constraint firstAttribute="bottom" secondItem="yB6-uB-bpt" secondAttribute="bottom" constant="8" id="enA-ck-qec"/>
+                <constraint firstAttribute="bottom" secondItem="yB6-uB-bpt" secondAttribute="bottom" priority="999" constant="8" id="enA-ck-qec"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="251" height="277"/>
             <connections>
+                <outlet property="botConstraint" destination="qHc-Ql-Sa6" id="lan-R4-MpY"/>
                 <outlet property="descLabel" destination="nmC-jF-hyL" id="Vf3-IW-OXG"/>
                 <outlet property="outsideView" destination="yB6-uB-bpt" id="sqW-RY-Yfz"/>
                 <outlet property="titleLabel" destination="aHs-A0-55Z" id="77e-ci-0Zh"/>

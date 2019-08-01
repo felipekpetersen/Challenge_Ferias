@@ -786,6 +786,25 @@
                                         <rect key="frame" x="0.0" y="-40" width="414" height="125"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z31-py-TzM">
+                                        <rect key="frame" x="34" y="9.5" width="27" height="30"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="three_dots" translatesAutoresizingMaskIntoConstraints="NO" id="UNb-mn-4AC">
+                                                <rect key="frame" x="0.0" y="11.5" width="27" height="7"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="27" id="QZh-zt-kRM"/>
+                                                    <constraint firstAttribute="height" constant="7" id="kS4-hP-Oso"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="7u2-Wc-uX8"/>
+                                            <constraint firstItem="UNb-mn-4AC" firstAttribute="centerY" secondItem="Z31-py-TzM" secondAttribute="centerY" id="9SO-kh-k9Z"/>
+                                            <constraint firstItem="UNb-mn-4AC" firstAttribute="centerX" secondItem="Z31-py-TzM" secondAttribute="centerX" id="VwJ-AN-xCT"/>
+                                            <constraint firstItem="UNb-mn-4AC" firstAttribute="leading" secondItem="Z31-py-TzM" secondAttribute="leading" id="r5U-MB-9uk"/>
+                                        </constraints>
+                                    </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="s9f-cF-dy5">
                                         <rect key="frame" x="149.5" y="16" width="115.5" height="17"/>
                                         <subviews>
@@ -852,6 +871,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="Z31-py-TzM" firstAttribute="centerX" secondItem="5LM-MW-eyh" secondAttribute="centerX" id="6El-cJ-JWP"/>
                                     <constraint firstItem="s9f-cF-dy5" firstAttribute="top" secondItem="wRY-w1-UXo" secondAttribute="top" constant="16" id="7ny-ay-uw4"/>
                                     <constraint firstAttribute="height" constant="85" id="8eM-k9-lco"/>
                                     <constraint firstItem="lLH-Pv-2zi" firstAttribute="leading" secondItem="wRY-w1-UXo" secondAttribute="leading" id="FlT-Zb-ehm"/>
@@ -859,6 +879,7 @@
                                     <constraint firstAttribute="bottom" secondItem="lLH-Pv-2zi" secondAttribute="bottom" id="Oeg-2O-gZh"/>
                                     <constraint firstItem="lLH-Pv-2zi" firstAttribute="top" secondItem="wRY-w1-UXo" secondAttribute="top" constant="-40" id="PNb-gg-1Xr"/>
                                     <constraint firstItem="s9f-cF-dy5" firstAttribute="centerX" secondItem="wRY-w1-UXo" secondAttribute="centerX" id="Pg2-Ms-omZ"/>
+                                    <constraint firstItem="Z31-py-TzM" firstAttribute="centerY" secondItem="5LM-MW-eyh" secondAttribute="centerY" id="SE6-Qr-5hI"/>
                                     <constraint firstAttribute="trailing" secondItem="8PX-vd-5dp" secondAttribute="trailing" constant="21" id="Tmb-12-0JI"/>
                                     <constraint firstItem="Vms-lX-Q5A" firstAttribute="leading" secondItem="wRY-w1-UXo" secondAttribute="leading" id="ey0-Ty-wZN"/>
                                     <constraint firstItem="5LM-MW-eyh" firstAttribute="centerY" secondItem="XMt-Fd-BB0" secondAttribute="centerY" id="hC5-ZI-8l6"/>
@@ -898,6 +919,7 @@
                         <outlet property="checkView" destination="CaP-PC-I1t" id="Rhi-Kc-v5x"/>
                         <outlet property="contentLetterTextView" destination="iZ1-5x-6ob" id="rce-gD-P3H"/>
                         <outlet property="degradeImageView" destination="lLH-Pv-2zi" id="8zS-EZ-8jR"/>
+                        <outlet property="dotsView" destination="Z31-py-TzM" id="0AR-67-8Xh"/>
                         <outlet property="letterBottomConstraint" destination="pz9-6V-F8e" id="GN9-y4-hMi"/>
                         <outlet property="letterScrollView" destination="z6T-SG-BiJ" id="qlX-cA-Sdo"/>
                         <outlet property="letterView" destination="dJb-ap-qM0" id="C9i-PY-Wr9"/>
@@ -1165,7 +1187,7 @@
         <image name="wall_myhome" width="53" height="812"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="84t-AY-Vgk"/>
+        <segue reference="xiy-PR-ReY"/>
         <segue reference="NcR-kS-XfC"/>
     </inferredMetricsTieBreakers>
 </document>

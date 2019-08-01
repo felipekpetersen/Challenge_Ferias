@@ -30,7 +30,7 @@ class MyLetterTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.descLabel.lineHeightMultiple = LINE_HEIGHT
+//        self.descLabel.lineHeightMultiple = LINE_HEIGHT
 
     }
     

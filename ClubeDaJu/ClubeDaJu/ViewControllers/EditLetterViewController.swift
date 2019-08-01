@@ -32,6 +32,7 @@ class EditLetterViewController: UIViewController {
     
     var viewState: EditLetterViewControllerState?
     var createdLetter: Letters?
+    var timer: Timer?
     
     override func viewDidLoad() {
         setupAutoScrollWhenKeyboardShowsUp()
@@ -39,11 +40,28 @@ class EditLetterViewController: UIViewController {
         self.setupView()
         self.setupViewTaps()
         self.checkEmptyness()
+        setupTimer()
     }
     
     // MARK:- Scroll View Content Inset
     override func setScrollViewContentInset(_ inset: UIEdgeInsets) {
         scrollView.contentInset = inset
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.timer?.invalidate()
+    }
+    
+    func setupTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(save), userInfo: nil, repeats: true)
+    }
+    
+    @objc func save(){
+        if titleTextView.text != "Insira um Titulo", contentTextView.text != "Conte sua história" {
+            LetterSingleton.shared.updateText(id: self.createdLetter?.letterId ?? "", title: self.titleTextView.text, content: self.contentTextView.text)
+            self.saveLabel.isHidden = false
+        }
     }
     
     //MARK:- Setups
@@ -222,6 +240,10 @@ extension EditLetterViewController: UITextViewDelegate {
                 self.contentTextView.textColor = UIColor(rgb: 0x404040)
             }
         }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        self.saveLabel.isHidden = true
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {

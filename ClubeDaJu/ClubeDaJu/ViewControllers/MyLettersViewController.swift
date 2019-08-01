@@ -28,11 +28,23 @@ class MyLettersViewController: UIViewController {
 //        self.setupTableView()
 //        self.letters = InternLetter.getLetters(userId: UserDefaults.standard.string(forKey: Constants.USER_UUID) ?? "")
 //        createNotification()
+        foreground()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 //        self.loadData()
+        self.loadDataSorted()
+        self.setupTableView()
+        self.letters = InternLetter.getLetters(userId: UserDefaults.standard.string(forKey: Constants.USER_UUID) ?? "")
+        createNotification()
+    }
+    
+    func foreground() {
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+    
+    @objc func willEnterForeground() {
         self.loadDataSorted()
         self.setupTableView()
         self.letters = InternLetter.getLetters(userId: UserDefaults.standard.string(forKey: Constants.USER_UUID) ?? "")

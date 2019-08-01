@@ -7,18 +7,20 @@
 //
 
 import UIKit
+import MessageUI
 
 enum ReadLetterViewControllerState {
     case read
     case answer
 }
 
-class ReadLetterViewController: UIViewController {
+class ReadLetterViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     //MARK:- Navigation
     @IBOutlet weak var backgroundTopView: UIView!
     @IBOutlet weak var degradeImageView: UIImageView!
     @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var dotsView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var sendLetterView: UIView!
     @IBOutlet weak var checkView: UIView!
@@ -59,7 +61,7 @@ class ReadLetterViewController: UIViewController {
     }
     
     func setupView(for state: ReadLetterViewControllerState) {
-        self.titleLabel.text = self.receivedLetter?.title
+        self.titleLetterTextView.text = self.receivedLetter?.title
         self.contentLetterTextView.text = self.receivedLetter?.content
         
         
@@ -70,6 +72,7 @@ class ReadLetterViewController: UIViewController {
             self.titleLabel.text = "Apenas Leitura"
             self.titleLabel.textColor = UIColor(rgb: 0x8F8F8F)
             self.cancelButton.isHidden = true
+            self.dotsView.isHidden = false
             self.sendLetterView.isHidden = true
             self.checkView.isHidden = false
             self.degradeImageView.isHidden = false
@@ -91,6 +94,7 @@ class ReadLetterViewController: UIViewController {
             self.answerTextView.delegate = self
             self.titleLabel.textColor = .white
             self.cancelButton.isHidden = false
+            self.dotsView.isHidden = true
             self.sendLetterView.isHidden = false
             self.checkView.isHidden = true
             self.degradeImageView.isHidden = true
@@ -115,10 +119,12 @@ class ReadLetterViewController: UIViewController {
         let answerTap = UITapGestureRecognizer(target: self, action: #selector(didTapAnswer))
         let checkTap = UITapGestureRecognizer(target: self, action: #selector(didTapCheck))
         let sendTap = UITapGestureRecognizer(target: self, action: #selector(didTapSend))
+        let dotsTap = UITapGestureRecognizer(target: self, action: #selector(didTapDots))
         
         self.answerButtonView.addGestureRecognizer(answerTap)
         self.checkView.addGestureRecognizer(checkTap)
         self.sendLetterView.addGestureRecognizer(sendTap)
+        self.dotsView.addGestureRecognizer(dotsTap)
     }
     
     @objc func didTapAnswer() {
@@ -161,6 +167,38 @@ class ReadLetterViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
+    
+    @objc func didTapDots() {
+        let optionMenu = UIAlertController(title: nil, message: "Escolha uma opção", preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: "Denunciar", style: .destructive, handler: { action in
+            
+            optionMenu.dismiss(animated: true, completion: nil)
+            self.present(self.createEmail(letterId: self.receivedLetter?.letterId ?? ""), animated: true)
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        optionMenu.addAction(deleteAction)
+        optionMenu.addAction(cancelAction)
+        self.present(optionMenu, animated: true, completion: nil)
+    }
+    
+    
+    
+    func createEmail(letterId: String) -> MFMailComposeViewController {
+        
+        let composeVC = MFMailComposeViewController()
+        composeVC.mailComposeDelegate = self
+        // Configure the fields of the interface.
+        composeVC.setToRecipients(["br.clube.ju@gmail.com"])
+        composeVC.setSubject("Denuncia da carta de número \(letterId)")
+        composeVC.setMessageBody("<p>Clube da Ju, acredito q esta carta viola as politicas do aplicativo. Vocês poderiam dar uma olhada para mim?<p><br><p>Obs: É essencial deixar o assunto da mensagem como esta para essa denuncia ser processada.<p>", isHTML: true)
+        // Present the view controller modally.
+        return composeVC
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+
     
     @IBAction func didTapShowLetter(_ sender: Any) {
         if isShowingLetter {
