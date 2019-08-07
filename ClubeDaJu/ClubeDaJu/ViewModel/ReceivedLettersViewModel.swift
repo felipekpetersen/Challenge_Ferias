@@ -12,8 +12,10 @@ class ReceivedLettersViewModel {
     
     var letters = [LetterCodable]()
     
-    func fetchLetters() {
-        self.letters = InternLetter.getRandomLetters()
+    func fetchLetters(complete: @escaping() -> ()) {
+        self.letters = InternLetter.getRandomLetters(complete: {
+            complete()
+        })
     }
     
     func getNumberOfRows() -> Int {

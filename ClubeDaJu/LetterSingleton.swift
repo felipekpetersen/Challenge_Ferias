@@ -120,6 +120,37 @@ class LetterSingleton{
             }
         }
     }
+    
+    func updateLetter(id: String, success: @escaping () -> ()) {
+        var letter: NSManagedObject?
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Letters")
+        let predicate = NSPredicate(format: "letterId == '\(id)'")
+        fetchRequest.predicate = predicate
+        do {
+            let object = try managedContext.fetch(fetchRequest)
+            if object.count == 1 {
+                letter = object[0] as? NSManagedObject
+            }
+        } catch {
+            print(error)
+        }
+        
+        if let user = UserDefaults.standard.string(forKey: Constants.USER_UUID), let letterAux = letter, let letter = letterAux as? Letters, letter.isShared == true {
+            LetterRequest().updateLetter(userUuid: user, letter: letter) { (response, error) in
+                if let _ = response {
+                    success()
+                    print("sent letter")
+                } else {
+                    print("error Letter")
+                }
+            }
+        }
+    }
    
     func deleteLetter(id: String, success: @escaping () -> (), fail: @escaping () -> ()) {
         if let user = UserDefaults.standard.string(forKey: Constants.USER_UUID) {
@@ -146,6 +177,7 @@ class LetterSingleton{
             }
         }
     }
+    
     
     func updateShared(id: String) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {

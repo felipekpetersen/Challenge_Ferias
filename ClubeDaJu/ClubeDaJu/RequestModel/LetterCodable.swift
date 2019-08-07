@@ -49,7 +49,7 @@ class InternLetter: NSObject {
         return letters
     }
     
-    static func getRandomLetters() -> [LetterCodable] {
+    static func getRandomLetters(complete: @escaping() -> ()) -> [LetterCodable] {
         var letters: [LetterCodable] = []
         do {
             let path = "https://br-clube-ju.herokuapp.com/api/getAllLetters/"
@@ -59,11 +59,14 @@ class InternLetter: NSObject {
             let lettersData = try Data(contentsOf: url as! URL)
             
             letters = try JSONDecoder().decode([LetterCodable].self, from: lettersData)
+            complete()
             return letters
             
         } catch {
+            complete()
             print("\(error.localizedDescription)")
         }
+        complete()
         return letters
     }
 }

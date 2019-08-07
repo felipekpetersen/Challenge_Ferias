@@ -27,7 +27,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Sm8-1F-J3p" customClass="LettersPageViewController" customModule="ClubeDaJu" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S1a-0U-BiE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="567" y="-675"/>
+            <point key="canvasLocation" x="596" y="-676"/>
         </scene>
         <!--Edit Letter View Controller-->
         <scene sceneID="zY1-Dh-5D9">
@@ -347,7 +347,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qgq-3k-48A">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <connections>
                                     <segue destination="Sm8-1F-J3p" kind="embed" id="epc-2C-5Lh"/>
                                 </connections>
@@ -370,7 +370,7 @@
                             <constraint firstItem="54D-tm-gyf" firstAttribute="bottom" secondItem="tH5-mK-Hhp" secondAttribute="bottom" constant="32" id="7bk-qd-QdF"/>
                             <constraint firstItem="Qgq-3k-48A" firstAttribute="top" secondItem="54D-tm-gyf" secondAttribute="top" id="BeY-dp-sfj"/>
                             <constraint firstItem="Qgq-3k-48A" firstAttribute="leading" secondItem="54D-tm-gyf" secondAttribute="leading" id="TTW-Aj-54Z"/>
-                            <constraint firstItem="54D-tm-gyf" firstAttribute="bottom" secondItem="Qgq-3k-48A" secondAttribute="bottom" constant="-34" id="cnE-xK-6th"/>
+                            <constraint firstItem="54D-tm-gyf" firstAttribute="bottom" secondItem="Qgq-3k-48A" secondAttribute="bottom" id="cnE-xK-6th"/>
                             <constraint firstItem="54D-tm-gyf" firstAttribute="trailing" secondItem="Qgq-3k-48A" secondAttribute="trailing" id="euS-br-8l1"/>
                             <constraint firstItem="tH5-mK-Hhp" firstAttribute="centerX" secondItem="3Wb-sf-BEy" secondAttribute="centerX" id="iAW-kf-NN4"/>
                         </constraints>
@@ -395,7 +395,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wall_myhome" translatesAutoresizingMaskIntoConstraints="NO" id="sve-rP-yA6">
                                 <rect key="frame" x="356" y="0.0" width="58" height="896"/>
                             </imageView>
-                            <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dRn-Gt-ZZb">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dRn-Gt-ZZb">
                                 <rect key="frame" x="0.0" y="115" width="356" height="747"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
@@ -452,10 +452,13 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placa_clube" translatesAutoresizingMaskIntoConstraints="NO" id="p53-sm-mdJ">
                                 <rect key="frame" x="60" y="44" width="323" height="16"/>
                             </imageView>
-                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPu-mu-Tg0">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gPu-mu-Tg0">
                                 <rect key="frame" x="364" y="425" width="42" height="46"/>
                                 <inset key="contentEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
                                 <state key="normal" image="arrow_left"/>
+                                <connections>
+                                    <action selector="didTapArrow:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MRF-MC-uVZ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suas Cartas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uio-rg-8q1">
                                 <rect key="frame" x="16" y="68" width="137" height="39"/>
@@ -464,7 +467,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="letter_post" translatesAutoresizingMaskIntoConstraints="NO" id="doL-gS-BAm">
-                                <rect key="frame" x="322" y="806" width="72" height="90"/>
+                                <rect key="frame" x="330" y="806" width="72" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="png-qK-lmY"/>
                                     <constraint firstAttribute="width" constant="72" id="vlL-Pf-dIl"/>
@@ -498,7 +501,7 @@
                             <constraint firstItem="EhN-0D-3wJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="kCN-oE-exA"/>
                             <constraint firstItem="N6C-9B-xU3" firstAttribute="trailing" secondItem="dRn-Gt-ZZb" secondAttribute="trailing" id="mfr-44-uQj"/>
                             <constraint firstItem="N6C-9B-xU3" firstAttribute="bottom" secondItem="dRn-Gt-ZZb" secondAttribute="bottom" id="rik-nY-kBl"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="doL-gS-BAm" secondAttribute="trailing" constant="20" id="svj-fo-t3K"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="doL-gS-BAm" secondAttribute="trailing" constant="12" id="svj-fo-t3K"/>
                             <constraint firstItem="sve-rP-yA6" firstAttribute="leading" secondItem="dRn-Gt-ZZb" secondAttribute="trailing" id="uvP-Dw-JAZ"/>
                             <constraint firstItem="6bY-ai-hWR" firstAttribute="centerY" secondItem="gPu-mu-Tg0" secondAttribute="centerY" id="z5s-2r-Fr6"/>
                             <constraint firstItem="dRn-Gt-ZZb" firstAttribute="top" secondItem="uio-rg-8q1" secondAttribute="bottom" constant="8" id="zFh-WZ-nkI"/>
@@ -561,10 +564,13 @@
                                 <color key="textColor" red="0.99950450658798218" green="0.51623207330703735" blue="0.48326462507247925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6R0-wR-MnI">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6R0-wR-MnI">
                                 <rect key="frame" x="8" y="400.5" width="42" height="95"/>
                                 <inset key="contentEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
                                 <state key="normal" image="arrow_right"/>
+                                <connections>
+                                    <action selector="didTapArrow:" destination="pxe-0f-dac" eventType="touchUpInside" id="3kL-WQ-53E"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1187,7 +1193,7 @@
         <image name="wall_myhome" width="53" height="812"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xiy-PR-ReY"/>
-        <segue reference="NcR-kS-XfC"/>
+        <segue reference="84t-AY-Vgk"/>
+        <segue reference="uyP-R3-Q2Y"/>
     </inferredMetricsTieBreakers>
 </document>

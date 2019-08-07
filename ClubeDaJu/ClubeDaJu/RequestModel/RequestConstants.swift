@@ -19,6 +19,7 @@ struct RequestConstants {
 
     static let POST_ADDLETTER = "\(RequestConstants.URL)addLetter"
     static let POST_DELETELETTER = "\(RequestConstants.URL)deleteLetter"
+    static let POST_UPDATELETTER = "\(RequestConstants.URL)updateLetter"
     static let POST_ADDANSWER = "\(RequestConstants.URL)addAnswer"
 }
  

@@ -62,7 +62,7 @@ class AnswersViewController: UIViewController, MFMailComposeViewControllerDelega
         // Configure the fields of the interface.
         composeVC.setToRecipients(["br.clube.ju@gmail.com"])
         composeVC.setSubject("Denuncia da carta de número \(letterId), resposta de número \(answerId)")
-        composeVC.setMessageBody("<p>Clube da Ju, acredito q esta carta viola as politicas do aplicativo. Vocês poderiam dar uma olhada para mim?<p><br><p>Obs: É essencial deixar o assunto da mensagem como esta para essa denuncia ser processada.<p>", isHTML: true)
+        composeVC.setMessageBody("<p>Clube da Ju, acredito que esta carta viola as políticas do aplicativo. Vocês poderiam dar uma olhada para mim?<p><br><p>Obs: É essencial deixar o assunto da mensagem como esta para essa denuncia ser processada.<p>", isHTML: true)
         // Present the view controller modally.
         return composeVC
     }

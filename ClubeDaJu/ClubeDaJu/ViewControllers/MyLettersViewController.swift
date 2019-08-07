@@ -43,6 +43,7 @@ class MyLettersViewController: UIViewController {
     func foreground() {
         NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
+
     
     @objc func willEnterForeground() {
         self.loadDataSorted()
@@ -139,6 +140,16 @@ class MyLettersViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func didTapArrow(_ sender: Any) {
+        if let pageViewController = self.parent as? LettersPageViewController {
+            
+            let nextViewController = pageViewController.orderedViewControllers[1]
+            pageViewController.setViewControllers([nextViewController], direction: .forward, animated: true) { (true) in
+                pageViewController.currentPage = 1
+            }
+        }
+    }
 }
 
 extension MyLettersViewController: UITableViewDataSource, UITableViewDelegate {
@@ -216,6 +227,10 @@ extension MyLettersViewController: MyLetterTableViewCellDelegate {
 }
 
 extension MyLettersViewController: ShareModalViewControllerDelegate {
+    func didTapDismiss() {
+        self.loadDataSorted()
+    }
+    
     func didTapShare(id: String?) {
         if let id = id {
             LetterSingleton.shared.sendLetter(id: id, success: {

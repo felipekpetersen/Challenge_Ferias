@@ -192,6 +192,7 @@ class EditLetterViewController: UIViewController {
     @objc func didTapCheck() {
         if titleTextView.text != "Insira um Titulo", contentTextView.text != "Conte sua história" {
             LetterSingleton.shared.updateText(id: self.createdLetter?.letterId ?? "", title: self.titleTextView.text, content: self.contentTextView.text)
+            LetterSingleton.shared.updateLetter(id: self.createdLetter?.letterId ?? "") {}
             self.dismiss(animated: true, completion: nil)
         } else {
             let alert = UIAlertController(title: "Atenção", message: "Uma carta precisa de um titulo e corpo para ser salvo! Deseja deletar a carta?", preferredStyle: .alert)

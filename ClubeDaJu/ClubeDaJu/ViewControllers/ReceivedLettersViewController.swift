@@ -20,11 +20,13 @@ class ReceivedLettersViewController: UIViewController {
     var maxyEsquerda: CGFloat = 0
 
     var isPar = true
+    var refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupCollectionView()
         loadData()
+        setupRefresher()
     }
     
     func setupCollectionView() {
@@ -40,18 +42,41 @@ class ReceivedLettersViewController: UIViewController {
         collectionView.collectionViewLayout = layout
     }
     
+    func setupRefresher() {
+//        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        self.collectionView.addSubview(refreshControl)
+    }
+    
+    @objc func refresh() {
+        self.loadData()
+    }
+    
     func getRandomSize() -> CGFloat{
         return CGFloat(heightsForRow.randomElement() ?? 400)
     }
     
     func loadData() {
-        self.viewModel.fetchLetters()
-        self.collectionView.reloadData()
+        self.viewModel.fetchLetters(complete: {
+            self.refreshControl.endRefreshing()
+            self.collectionView.reloadData()
+        })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? ReadLetterViewController {
             vc.receivedLetter = self.selectedLetter
+        }
+    }
+    
+    @IBAction func didTapArrow(_ sender: Any) {
+        if let pageViewController = self.parent as? LettersPageViewController {
+            
+            let nextViewController = pageViewController.orderedViewControllers[0]
+            //                pageViewController.setViewControllers([nextViewController], direction: .forward, animated: true, completion: nil)
+            pageViewController.setViewControllers([nextViewController], direction: .reverse, animated: true) { (true) in
+                pageViewController.currentPage = 0
+            }
         }
     }
 }
@@ -122,12 +147,5 @@ extension ReceivedLettersViewController: UICollectionViewDataSource, UICollectio
         return CGSize(width: collectionView.frame.size.width/2 , height: randomSize)
 //        return CGSize(width: collectionView.frame.size.width/2 , height: self.collectionView.cellForItem(at: indexPath)?.contentView.frame.height ?? 150)
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return 0
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        return 0
-//    }
+
 }

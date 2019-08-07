@@ -11,6 +11,7 @@ import UIKit
 protocol ShareModalViewControllerDelegate {
     func didTapShare(id: String?)
     func didTapDontShare()
+    func didTapDismiss()
 }
 
 class ShareModalViewController: UIViewController {
@@ -40,6 +41,7 @@ class ShareModalViewController: UIViewController {
     }
     
     @objc func didTapDismiss() {
+        self.delegate?.didTapDismiss()
         self.dismiss(animated: true, completion: nil)
     }
     
